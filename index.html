@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RVA Health Partner — Body Recomposition &amp; Clinical Coaching, Richmond VA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #1c5c30;
+      --green-light: #266b3c;
+      --green-dark: #0f3a1e;
+      --green-faint: #edf5ef;
+      --gold: #c49a2a;
+      --gold-light: #d4aa40;
+      --gold-faint: #fdf8ed;
+      --cream: #f4f0e7;
+      --cream-dark: #e5dece;
+      --text: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --white: #ffffff;
+      --border: #d8d2c4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+    }
+    .nav-logo {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.4px;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 66px);
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 80px 80px 80px;
+      gap: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 75% 60%, rgba(196,154,42,0.07) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 30%, rgba(28,92,48,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-content { max-width: 560px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 26px;
+      color: var(--text);
+    }
+    .hero h1 em {
+      color: var(--green);
+      font-style: normal;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.72;
+      margin-bottom: 38px;
+      max-width: 490px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 16px 34px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: all 0.2s;
+      letter-spacing: -0.2px;
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(28,92,48,0.28);
+    }
+    .btn-gold { background: var(--gold); }
+    .btn-gold:hover { background: #a8821f; box-shadow: 0 8px 28px rgba(196,154,42,0.28); }
+    .hero-fine {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-svg { width: 100%; max-width: 500px; height: auto; }
+
+    /* ── PROOF BAR ── */
+    .proof-bar {
+      background: var(--green);
+      padding: 22px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .proof-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+    }
+    .proof-icon { font-size: 18px; opacity: 0.85; }
+    .proof-text { font-size: 13.5px; font-weight: 500; opacity: 0.9; }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 80px; }
+    section.alt { background: var(--cream); }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: block;
+    }
+    h2 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .section-intro {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 56px;
+      line-height: 1.72;
+    }
+
+    /* ── STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .step-card {
+      padding: 40px 36px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--green);
+    }
+    .step-num {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--cream-dark);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--green-dark);
+    }
+    .step-card p {
+      font-size: 15.5px;
+      color: var(--text-muted);
+      line-height: 1.72;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .benefit-block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 60px;
+      align-items: start;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .benefit-block:first-child { padding-top: 0; }
+    .benefit-block:last-child { border-bottom: none; }
+    .benefit-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-top: 6px;
+    }
+    .benefit-block h3 {
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    .bad-vs-good {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 18px;
+    }
+    .bad-line {
+      font-size: 14.5px;
+      color: #9e3a3a;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .good-line {
+      font-size: 14.5px;
+      color: var(--green-dark);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    .benefit-specificity {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+      border-left: 3px solid var(--gold);
+      padding-left: 14px;
+      line-height: 1.6;
+    }
+
+    /* ── PACKAGES ── */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .package-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .package-card.featured { border: 2px solid var(--gold); }
+    .package-header {
+      padding: 36px 40px;
+      background: var(--green);
+      color: white;
+    }
+    .package-card.featured .package-header {
+      background: linear-gradient(140deg, #0f3a1e, #1c5c30);
+    }
+    .package-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .package-header h3 { font-size: 24px; font-weight: 800; }
+    .package-header p { font-size: 15px; opacity: 0.78; margin-top: 8px; line-height: 1.55; }
+    .package-features { padding: 32px 40px; }
+    .package-feature {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .package-feature:last-of-type { border-bottom: none; }
+    .check { color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 17px; margin-top: 1px; }
+    .feature-name { font-weight: 600; font-size: 15px; color: var(--text); }
+    .feature-desc { color: var(--text-muted); font-size: 13.5px; margin-top: 3px; line-height: 1.5; }
+
+    /* ── MID CTA ── */
+    .mid-cta {
+      background: var(--green-dark);
+      padding: 100px 80px;
+      text-align: center;
+      color: white;
+    }
+    .mid-cta h2 { font-size: 42px; margin-bottom: 20px; }
+    .mid-cta p {
+      font-size: 18px;
+      opacity: 0.78;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.72;
+    }
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13.5px;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { max-width: 720px; }
+    .timeline-block { margin-bottom: 52px; }
+    .timeline-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .timeline-block h3 { font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .timeline-steps { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .timeline-steps li { display: flex; gap: 14px; align-items: flex-start; font-size: 16px; line-height: 1.65; }
+    .step-marker {
+      background: var(--green);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .not-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 44px;
+      padding-top: 44px;
+      border-top: 1px solid var(--border);
+    }
+    .not-label { font-weight: 700; font-size: 14px; width: 100%; color: var(--text-muted); margin-bottom: 4px; }
+    .not-item {
+      background: #fdf2f2;
+      border: 1px solid #f0c0c0;
+      color: #9e3a3a;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* ── PROOF / SOCIAL ── */
+    .proof-section { background: var(--cream); padding: 100px 80px; }
+    .founding-block {
+      background: white;
+      border-radius: 16px;
+      padding: 52px;
+      border-left: 6px solid var(--gold);
+      margin-bottom: 40px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+    .founding-block h3 { font-size: 26px; font-weight: 700; margin-bottom: 16px; }
+    .founding-block p {
+      font-size: 17px;
+      line-height: 1.72;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+    .authority-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .authority-card {
+      background: white;
+      border-radius: 14px;
+      padding: 36px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .authority-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .authority-card p { font-size: 15px; line-height: 1.72; color: var(--text-muted); }
+
+    /* ── COMPARISON ── */
+    .comparison-wrap { overflow-x: auto; margin-top: 48px; border-radius: 14px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .comparison-table { width: 100%; border-collapse: collapse; background: white; }
+    .comparison-table th {
+      padding: 18px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      background: #f9f7f2;
+    }
+    .comparison-table th:first-child { text-align: left; }
+    .comparison-table th:nth-child(2) {
+      background: var(--green);
+      color: white;
+      font-size: 15px;
+    }
+    .comparison-table td {
+      padding: 14px 22px;
+      font-size: 14px;
+      border-top: 1px solid var(--cream-dark);
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .comparison-table td:first-child { text-align: left; font-weight: 500; color: var(--text); }
+    .comparison-table td:nth-child(2) { background: rgba(28,92,48,0.04); }
+    .comparison-table tr:hover td { background: #fafaf7; }
+    .comparison-table tr:hover td:nth-child(2) { background: rgba(28,92,48,0.08); }
+    .yes { color: var(--green); font-weight: 800; font-size: 19px; }
+    .no { color: #c0392b; font-size: 19px; }
+    .sometimes { color: #c07a2b; font-weight: 600; font-size: 13px; }
+
+    /* ── FAQ ── */
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 24px 0;
+      text-align: left;
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--green); }
+    .faq-icon {
+      font-size: 24px;
+      color: var(--green);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+      line-height: 1;
+    }
+    .faq-q.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      padding: 0 0 24px;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .faq-a.open { display: block; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--cream);
+      padding: 120px 80px;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.13;
+      letter-spacing: -1px;
+      margin-bottom: 36px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-copy {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+    }
+    .final-copy p { margin-bottom: 16px; }
+    .final-copy p:last-child { margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.55);
+      padding: 40px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+    }
+    .footer-logo { font-size: 20px; font-weight: 800; color: white; }
+    .footer-logo span { color: var(--gold); }
+    .disclaimer { max-width: 520px; text-align: right; font-size: 12px; line-height: 1.65; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav, .hero, section, .proof-bar, .mid-cta, .proof-section, .final-cta, footer {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+      .hero { grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 56px; }
+      .hero h1 { font-size: 34px; }
+      .hero-visual { display: none; }
+      .steps-grid, .packages-grid, .authority-block { grid-template-columns: 1fr; }
+      .benefit-block { grid-template-columns: 1fr; gap: 20px; }
+      h2 { font-size: 30px; }
+      .final-cta h2 { font-size: 32px; }
+      .mid-cta h2 { font-size: 32px; }
+      footer { flex-direction: column; text-align: center; }
+      .disclaimer { text-align: center; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">RVA <span>Health</span> Partner</div>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#packages">Programs</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-tag">Richmond, VA &nbsp;·&nbsp; Private Coaching Practice</span>
+    <h1>GLP-1 Medications Help You Lose Weight.<br><em>Strength Training Determines Whether You Lose Fat — or Muscle.</em><br>We're the Only Program in Richmond That Does Both.</h1>
+    <p class="hero-sub">RVA Health Partner is a private coaching practice for adults in Richmond who are done with generic programs that only care about the number on the scale. Whether you're starting fresh or already on a GLP-1, we build the strength, nutrition, and medical infrastructure your body needs to recompose — not just shrink.</p>
+    <a href="#apply" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
+    <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
+  </div>
+
+  <!-- Dynamic Partner SVG — green + gold watercolor figures -->
+  <div class="hero-visual">
+    <svg class="hero-svg" viewBox="0 0 520 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <!-- Watercolor displacement filter — green -->
+        <filter id="wc-g" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.022 0.032" numOctaves="6" seed="4" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="2.8"/>
+        </filter>
+        <!-- Watercolor displacement filter — gold -->
+        <filter id="wc-au" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="6" seed="9" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="13" xChannelSelector="G" yChannelSelector="R" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="2.2"/>
+        </filter>
+        <!-- Overlap blend -->
+        <filter id="wc-blend" x="-30%" y="-30%" width="160%" height="160%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="2" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
+          <feGaussianBlur in="d" stdDeviation="5"/>
+        </filter>
+        <linearGradient id="gg" x1="0.2" y1="0" x2="0.8" y2="1">
+          <stop offset="0%" stop-color="#2e7d44" stop-opacity="0.95"/>
+          <stop offset="55%" stop-color="#1c5c30" stop-opacity="0.90"/>
+          <stop offset="100%" stop-color="#0d3a1c" stop-opacity="0.82"/>
+        </linearGradient>
+        <linearGradient id="ag" x1="0.1" y1="0" x2="0.9" y2="1">
+          <stop offset="0%" stop-color="#d8b545" stop-opacity="0.93"/>
+          <stop offset="50%" stop-color="#c49a2a" stop-opacity="0.88"/>
+          <stop offset="100%" stop-color="#96751c" stop-opacity="0.78"/>
+        </linearGradient>
+      </defs>
+
+      <!-- GREEN FIGURE — forward sprint lunge, leaning right (Oracle expression) -->
+      <g filter="url(#wc-g)" opacity="0.95">
+        <!-- Head -->
+        <ellipse cx="172" cy="88" rx="31" ry="33" fill="url(#gg)"/>
+        <!-- Neck -->
+        <ellipse cx="181" cy="123" rx="13" ry="18" fill="url(#gg)"/>
+        <!-- Torso — leaning forward ~30 deg -->
+        <ellipse cx="208" cy="218" rx="42" ry="74" transform="rotate(-26 208 218)" fill="url(#gg)"/>
+        <!-- Hip mass -->
+        <ellipse cx="200" cy="305" rx="38" ry="40" fill="url(#gg)"/>
+        <!-- Back arm (left, sweeping behind) -->
+        <ellipse cx="145" cy="198" rx="17" ry="54" transform="rotate(28 145 198)" fill="url(#gg)"/>
+        <ellipse cx="114" cy="253" rx="13" ry="40" transform="rotate(50 114 253)" fill="url(#gg)"/>
+        <!-- Front arm (right, pumping forward) -->
+        <ellipse cx="264" cy="162" rx="15" ry="52" transform="rotate(-52 264 162)" fill="url(#gg)"/>
+        <ellipse cx="298" cy="118" rx="11" ry="38" transform="rotate(-30 298 118)" fill="url(#gg)"/>
+        <!-- Front leg (left, striding forward and bent) -->
+        <ellipse cx="228" cy="378" rx="26" ry="80" transform="rotate(12 228 378)" fill="url(#gg)"/>
+        <ellipse cx="250" cy="473" rx="20" ry="56" transform="rotate(-8 250 473)" fill="url(#gg)"/>
+        <!-- Back leg (right, extended behind) -->
+        <ellipse cx="162" cy="385" rx="23" ry="78" transform="rotate(-28 162 385)" fill="url(#gg)"/>
+        <ellipse cx="126" cy="474" rx="16" ry="52" transform="rotate(-18 126 474)" fill="url(#gg)"/>
+      </g>
+
+      <!-- GOLD FIGURE — explosive upward leap, slightly right (Catalyst expression) -->
+      <g filter="url(#wc-au)" opacity="0.91">
+        <!-- Head -->
+        <ellipse cx="335" cy="62" rx="30" ry="32" fill="url(#ag)"/>
+        <!-- Neck -->
+        <ellipse cx="332" cy="95" rx="12" ry="17" fill="url(#ag)"/>
+        <!-- Torso — upright, slight back lean in explosive leap -->
+        <ellipse cx="330" cy="190" rx="40" ry="76" transform="rotate(6 330 190)" fill="url(#ag)"/>
+        <!-- Hip mass -->
+        <ellipse cx="328" cy="308" rx="38" ry="38" fill="url(#ag)"/>
+        <!-- Left arm — reaching up-left in leap -->
+        <ellipse cx="270" cy="120" rx="14" ry="60" transform="rotate(-42 270 120)" fill="url(#ag)"/>
+        <ellipse cx="236" cy="72" rx="11" ry="44" transform="rotate(-22 236 72)" fill="url(#ag)"/>
+        <!-- Right arm — extending up-right -->
+        <ellipse cx="396" cy="110" rx="14" ry="64" transform="rotate(38 396 110)" fill="url(#ag)"/>
+        <ellipse cx="436" cy="60" rx="11" ry="46" transform="rotate(18 436 60)" fill="url(#ag)"/>
+        <!-- Left leg — bent forward/down -->
+        <ellipse cx="305" cy="398" rx="24" ry="80" transform="rotate(-10 305 398)" fill="url(#ag)"/>
+        <ellipse cx="278" cy="498" rx="18" ry="54" transform="rotate(22 278 498)" fill="url(#ag)"/>
+        <!-- Right leg — angling back -->
+        <ellipse cx="368" cy="406" rx="22" ry="78" transform="rotate(22 368 406)" fill="url(#ag)"/>
+        <ellipse cx="410" cy="505" rx="16" ry="50" transform="rotate(10 410 505)" fill="url(#ag)"/>
+      </g>
+
+      <!-- Overlap area — translucent blend where green + gold merge -->
+      <ellipse cx="265" cy="320" rx="50" ry="110" fill="#7a6010" opacity="0.18" filter="url(#wc-blend)"/>
+      <ellipse cx="260" cy="200" rx="35" ry="70" fill="#4a7a20" opacity="0.12" filter="url(#wc-blend)"/>
+
+      <!-- Subtle brand watermark -->
+      <text x="260" y="580" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#1c5c30" letter-spacing="4" opacity="0.45">RVA HEALTH PARTNER</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ── PROOF BAR ── -->
+<div class="proof-bar">
+  <div class="proof-item"><span class="proof-icon">🏥</span><span class="proof-text">Physician-supervised through Asher Med MSO</span></div>
+  <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">DEXA + RMR + Bloodwork in every program</span></div>
+  <div class="proof-item"><span class="proof-icon">🏋️</span><span class="proof-text">Individualized programming — no group classes</span></div>
+  <div class="proof-item"><span class="proof-icon">📍</span><span class="proof-text">Richmond, VA — in-person &amp; hybrid</span></div>
+  <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Now accepting founding member applications</span></div>
+</div>
+
+<!-- ── SECTION 2: HOW IT WORKS ── -->
+<section id="how-it-works">
+  <span class="section-label">How It Works</span>
+  <h2>No Mystery. Here's Exactly What Happens.</h2>
+  <p class="section-intro">Most programs ask you to trust the process without showing you what it is. Here's exactly what happens when you work with RVA Health Partner.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h3>Assess Your Actual Baseline</h3>
+      <p>Before we build anything, we measure everything. DEXA body composition scan. Resting metabolic rate test. Bloodwork panel. Movement screen. Not estimates — data.<br><br>You'll know exactly how much lean mass you're carrying, where your metabolism sits, and what your body needs before we write a single line of programming.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h3>Build Your Individualized System</h3>
+      <p>Based on your results, we design your strength program, nutrition targets, and — for Package 2 clients — initiate your clinical evaluation through Asher Med. Their licensed physicians independently assess eligibility for GLP-1/GIP therapy, peptides, or other medical support.<br><br>Nothing is templated. Nothing is copy-pasted from someone else's program.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h3>Execute, Adjust, Recompose</h3>
+      <p>Weekly check-ins. Program updates every 4 weeks based on how your body is actually responding. Direct coach access throughout. At 12 weeks, we rescan and retest — so you see exactly what changed in fat mass, lean mass, and metabolic markers. Not just the scale.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3: BENEFITS ── -->
+<section class="alt">
+  <span class="section-label">What This Actually Produces</span>
+  <h2>Four Outcomes. All Measured.</h2>
+
+  <div class="benefits-list">
+    <div class="benefit-block">
+      <div class="benefit-label">Benefit 01</div>
+      <div>
+        <h3>You Keep the Muscle You've Worked For</h3>
+        <div class="bad-vs-good">
+          <p class="bad-line">✗ "Lose weight with our personalized plan."</p>
+          <p class="good-line">✓ Clients on GLP-1 medications lose an average of 25–40% of their total weight loss as lean muscle without a structured resistance training program. We build that program specifically to protect and build lean mass while your body is in a caloric deficit.</p>
+        </div>
+        <p class="benefit-specificity">DEXA rescans at 12 weeks track lean mass delta, not just scale weight.</p>
+      </div>
+    </div>
+
+    <div class="benefit-block">
+      <div class="benefit-label">Benefit 02</div>
+      <div>
+        <h3>Your Nutrition Works With Your Biology, Not Against It</h3>
+        <div class="bad-vs-good">
+          <p class="bad-line">✗ "We'll give you a meal plan."</p>
+          <p class="good-line">✓ Nutritional guidance is built from your RMR data, bloodwork, and training volume, then recalibrated every 4 weeks. You're not following a generic calorie target. You're working with a system that adjusts as your metabolism changes.</p>
+        </div>
+        <p class="benefit-specificity">Resting metabolic rate testing reveals the exact caloric baseline most coaches guess at.</p>
+      </div>
+    </div>
+
+    <div class="benefit-block">
+      <div class="benefit-label">Benefit 03</div>
+      <div>
+        <h3>Medical Access Without the Runaround</h3>
+        <div class="bad-vs-good">
+          <p class="bad-line">✗ "Ask your doctor about GLP-1."</p>
+          <p class="good-line">✓ Package 2 clients receive a physician evaluation through Asher Med — our clinical partner. No searching telehealth directories. No prescription mills. A licensed physician reviews your bloodwork and independently determines appropriate medical support.</p>
+        </div>
+        <p class="benefit-specificity">Asher Med is an MSO with licensed physicians providing compliant, independent medical oversight. RVA Health Partner does not practice medicine.</p>
+      </div>
+    </div>
+
+    <div class="benefit-block">
+      <div class="benefit-label">Benefit 04</div>
+      <div>
+        <h3>You Actually Know What's Working</h3>
+        <div class="bad-vs-good">
+          <p class="bad-line">✗ "You'll feel better in a few weeks."</p>
+          <p class="good-line">✓ Every 12 weeks, we rescan and retest. You get hard data: how many pounds of fat lost, how many pounds of lean mass gained or preserved, how your resting metabolic rate has shifted. Accountability isn't a feeling here — it's a number.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4: PACKAGES ── -->
+<section id="packages">
+  <span class="section-label">Everything Included</span>
+  <h2>Two Programs. One System.</h2>
+  <p class="section-intro">Choose the level of clinical support that fits where you are right now. The coaching infrastructure is identical in both.</p>
+
+  <div class="packages-grid">
+    <!-- PACKAGE 1 -->
+    <div class="package-card">
+      <div class="package-header">
+        <h3>Package 1 — Foundation</h3>
+        <p>Strength + Nutrition + Data. Built for serious transformation without medication.</p>
+      </div>
+      <div class="package-features">
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">DEXA Body Composition Scan</div>
+            <div class="feature-desc">Baseline lean mass, fat mass, visceral fat — not a scale estimate</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Resting Metabolic Rate Test</div>
+            <div class="feature-desc">Your actual caloric baseline, measured with medical-grade equipment</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Bloodwork Panel</div>
+            <div class="feature-desc">Key metabolic, hormonal, and inflammatory markers reviewed</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Individualized Strength Program</div>
+            <div class="feature-desc">Written specifically for your body, goals, and training history</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Precision Nutrition Guidance</div>
+            <div class="feature-desc">Targets built from your RMR and blood data, adjusted every 4 weeks</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Weekly Check-Ins</div>
+            <div class="feature-desc">Accountability, coaching, and program refinement</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">12-Week DEXA Rescan</div>
+            <div class="feature-desc">Hard data on body composition change — not just scale weight</div>
+          </div>
+        </div>
+        <div style="margin-top: 28px;">
+          <a href="#apply" class="btn-primary" style="display: block; text-align: center;">→ Apply for Foundation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PACKAGE 2 -->
+    <div class="package-card featured">
+      <div class="package-header">
+        <div class="package-badge">Most Complete</div>
+        <h3>Package 2 — Accelerated</h3>
+        <p>Everything in Foundation, plus physician-supervised clinical support through Asher Med.</p>
+      </div>
+      <div class="package-features">
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Everything in Foundation</div>
+            <div class="feature-desc">Full data, programming, nutrition, and accountability system</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Asher Med Clinical Evaluation</div>
+            <div class="feature-desc">Physician intake and review of your bloodwork and health history</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">GLP-1 / GIP Medication Access</div>
+            <div class="feature-desc">Semaglutide, tirzepatide, or GIP therapy if prescribed by physician</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Peptide Therapy Options</div>
+            <div class="feature-desc">BPC-157, CJC-1295, Ipamorelin, and others upon physician approval</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Ongoing Medical Oversight</div>
+            <div class="feature-desc">Physician supervision through Asher Med throughout the program</div>
+          </div>
+        </div>
+        <div class="package-feature">
+          <span class="check">✓</span>
+          <div>
+            <div class="feature-name">Integrated Coach-Clinical Communication</div>
+            <div class="feature-desc">Your coach and clinical team work from the same picture of your progress</div>
+          </div>
+        </div>
+        <div style="margin-top: 28px;">
+          <a href="#apply" class="btn-primary btn-gold" style="display: block; text-align: center;">→ Apply for Accelerated</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MID CTA ── -->
+<div class="mid-cta">
+  <span class="section-label" style="color: var(--gold-light);">Ready to Stop Guessing?</span>
+  <h2>Start Measuring.</h2>
+  <p>Most people spinning their wheels on weight loss, inconsistent training, and generic nutrition plans aren't failing because they lack willpower. They're failing because nobody has ever built them a real system.</p>
+  <a href="#apply" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
+  <div class="trust-row">
+    <span class="trust-item" style="color: rgba(255,255,255,0.7);">🏥 Physician-supervised through Asher Med</span>
+    <span class="trust-item" style="color: rgba(255,255,255,0.7);">📊 Built on DEXA, RMR, and bloodwork</span>
+    <span class="trust-item" style="color: rgba(255,255,255,0.7);">📍 Richmond, VA — in-person &amp; hybrid</span>
+    <span class="trust-item" style="color: rgba(255,255,255,0.7);">🔒 Application reviewed within 24 hours</span>
+  </div>
+</div>
+
+<!-- ── SECTION 6: WHAT'S INCLUDED ── -->
+<section>
+  <span class="section-label">No Mystery Deliverables</span>
+  <h2>What You Get. Day by Day.</h2>
+  <p class="section-intro">There are no mystery deliverables here. Here is exactly what is included in your program from Day 1.</p>
+
+  <div class="timeline">
+    <div class="timeline-block">
+      <div class="timeline-label">Your First 7 Days</div>
+      <ul class="timeline-steps">
+        <li>
+          <div class="step-marker">1</div>
+          <div><strong>Strategy Session (60 min)</strong> — Review your goals, history, and barriers. Determine which package fits.</div>
+        </li>
+        <li>
+          <div class="step-marker">2</div>
+          <div><strong>Baseline Testing Appointment</strong> — DEXA scan, RMR test, and bloodwork drawn.</div>
+        </li>
+        <li>
+          <div class="step-marker">3</div>
+          <div><strong>Program Delivery</strong> — Your individualized strength program and nutritional targets delivered within 72 hours of testing.</div>
+        </li>
+        <li>
+          <div class="step-marker">4</div>
+          <div><strong>Package 2 only:</strong> Asher Med clinical intake initiated within the first week.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-label">Every Month After That</div>
+      <ul class="timeline-steps">
+        <li>
+          <div class="step-marker" style="background: var(--gold);">→</div>
+          <div>Weekly check-in — video or written, your preference</div>
+        </li>
+        <li>
+          <div class="step-marker" style="background: var(--gold);">→</div>
+          <div>Programming updates every 4 weeks based on performance and data</div>
+        </li>
+        <li>
+          <div class="step-marker" style="background: var(--gold);">→</div>
+          <div>Direct coach access via messaging for questions between sessions</div>
+        </li>
+        <li>
+          <div class="step-marker" style="background: var(--gold);">→</div>
+          <div>Nutritional guidance recalibrated to current RMR and training load</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="timeline-block">
+      <div class="timeline-label">At 12 Weeks</div>
+      <ul class="timeline-steps">
+        <li>
+          <div class="step-marker" style="background: var(--green-dark);">✓</div>
+          <div>DEXA rescan and updated bloodwork</div>
+        </li>
+        <li>
+          <div class="step-marker" style="background: var(--green-dark);">✓</div>
+          <div>Side-by-side body composition comparison — fat mass, lean mass, visceral fat</div>
+        </li>
+        <li>
+          <div class="step-marker" style="background: var(--green-dark);">✓</div>
+          <div>Program review and next-phase planning</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="not-list">
+      <span class="not-label">What this is NOT:</span>
+      <span class="not-item">❌ A group class</span>
+      <span class="not-item">❌ A cookie-cutter meal plan</span>
+      <span class="not-item">❌ A prescription mill</span>
+      <span class="not-item">❌ A gym membership</span>
+      <span class="not-item">❌ A 30-day challenge with no follow-through</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 7: SOCIAL PROOF ── -->
+<div class="proof-section">
+  <span class="section-label">From Clients and Partners</span>
+  <h2>Founding Member Access</h2>
+
+  <div class="founding-block">
+    <h3>Now Accepting Founding Member Applications</h3>
+    <p>Founding clients receive priority access, discounted program investment, and direct input into the program experience. In exchange, we ask for honest feedback and results documentation at the end of your program.</p>
+    <a href="#apply" class="btn-primary">→ Apply as a Founding Member</a>
+  </div>
+
+  <div class="authority-block">
+    <div class="authority-card">
+      <h4>About John Griffith</h4>
+      <p>Strength and conditioning coach based in Richmond, Virginia. Deep background in evidence-based programming, nutritional biochemistry, and biomarker-based coaching. B.S. in Microbiology. Ran a manufacturing operation as CEO for 10 years before returning to the work that matters — building bodies that perform over the long term. RVA Health Partner is the program he wished existed 15 years ago.</p>
+    </div>
+    <div class="authority-card">
+      <h4>Clinical Partner: Asher Med</h4>
+      <p>Asher Med is a Management Services Organization (MSO) providing physician-supervised telehealth clinical services. All medical evaluations, prescriptions, and clinical oversight in Package 2 are delivered independently by Asher Med's licensed physicians. RVA Health Partner does not practice medicine. The two organizations are legally and operationally separate.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── SECTION 9: COMPARISON ── -->
+<section>
+  <span class="section-label">How We Compare</span>
+  <h2>Nobody in Richmond Combines All Three Pillars.</h2>
+  <p class="section-intro">Strength. Nutrition. Medical. One program. Measured at 12 weeks with hard data.</p>
+
+  <div class="comparison-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Program Feature</th>
+          <th>RVA Health Partner</th>
+          <th>Local PT Studio</th>
+          <th>GLP-1 Clinic</th>
+          <th>Big Box Gym</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Individualized strength programming</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">sometimes</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>DEXA + RMR + Bloodwork included</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Physician-supervised clinical access</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>GLP-1 / peptide access</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Nutrition coaching integrated with training</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">rarely</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Body recomposition framing (fat + muscle tracked)</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">varies</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Weekly accountability check-ins</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">varies</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Program updated on data, not schedule</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">rarely</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>12-week rescan to measure body comp change</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+          <td><span class="no">✗</span></td>
+        </tr>
+        <tr>
+          <td>Local Richmond provider</td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+          <td><span class="sometimes">varies</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── SECTION 10: FAQ ── -->
+<section class="alt" id="faq">
+  <span class="section-label">Common Questions</span>
+  <h2>Answers Before You Apply</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I have to be on GLP-1 medication to work with you?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        No. Package 1 — Foundation — is a complete strength, nutrition, and data-driven coaching program with no medical component. Package 2 adds clinical support through Asher Med for clients who want physician evaluation for GLP-1, GIP, or peptide therapy. Either way, the coaching system is the same.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What is Asher Med and what do they actually do?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Asher Med is a Management Services Organization (MSO) that provides the clinical infrastructure for Package 2. Their licensed physicians independently evaluate clients, review bloodwork, and make all prescribing decisions. RVA Health Partner provides coaching. Asher Med provides clinical care. The two are legally and operationally separate.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Will I lose muscle on GLP-1 medications?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Research shows that without a structured resistance training program, 25–40% of total weight lost on GLP-1 medications can come from lean mass. The Foundation and Accelerated programs are both designed to prioritize muscle preservation and growth during a caloric deficit — which is precisely why strength training is not optional in this model.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How is this different from hiring a regular personal trainer?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Most personal trainers write workouts. This program integrates DEXA body composition scans, resting metabolic rate testing, bloodwork interpretation, precision nutrition, weekly accountability, and — in Package 2 — physician-supervised clinical access. The programming is one component of a multi-layered system.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What does the Strategy Session involve?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        A 60-minute conversation — in person or via video — where we review your goals, history, current training, nutrition, and any medical context. You'll leave with a clear picture of which program fits and exactly what to expect. There is no obligation to enroll. If it's not the right fit, we'll tell you.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How much does it cost?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Investment details are discussed during your Strategy Session, where we confirm which package fits your situation. Founding member pricing is discounted and locked for the duration of your initial program. Apply to get the specifics.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you work with people who have never trained before?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Yes, within reason. This program is designed for adults who are serious about transformation and accountability. If you're brand new to training, we'll discuss realistic expectations during your strategy session.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is this available remotely or only in Richmond?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        Coaching is available in-person in Richmond and in a hybrid remote format. Testing — DEXA, RMR — requires in-person appointments at our partner testing facility. Check-ins and programming delivery are available fully remote for clients outside driving distance.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<div class="final-cta">
+  <h2>You Already Know the Generic Version Doesn't Work.<br>The Only Question Is Whether You're Ready for the Real One.</h2>
+
+  <div class="final-copy">
+    <p>You've probably done the gym thing. Maybe the diet thing. Maybe you've looked at GLP-1 medications and wondered whether to try them. Maybe you've already tried them and aren't sure why the results aren't what you expected.</p>
+    <p>The problem isn't you. Nobody has ever put the whole system together — the strength, the nutrition, the data, and the medical support — in one coherent program that actually tracks whether it's working.</p>
+    <p>That's what RVA Health Partner exists to do.</p>
+  </div>
+
+  <a href="#apply" class="btn-primary" style="font-size: 18px; padding: 18px 44px;">→ Apply for Your Strategy Session</a>
+
+  <div class="trust-row" style="margin-top: 32px;">
+    <span class="trust-item" style="color: var(--text-muted);">🔒 Application reviewed within 24 hours</span>
+    <span class="trust-item" style="color: var(--text-muted);">🏥 Clinical care by Asher Med physicians</span>
+    <span class="trust-item" style="color: var(--text-muted);">📊 DEXA + RMR + Bloodwork from Day 1</span>
+    <span class="trust-item" style="color: var(--text-muted);">🚫 No long-term contract required to apply</span>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">RVA <span>Health</span> Partner</div>
+  <div class="disclaimer">
+    RVA Health Partner provides strength coaching and nutrition guidance. Clinical services in Package 2 are delivered independently by Asher Med MSO and its licensed physicians. RVA Health Partner does not practice medicine, prescribe medication, or provide medical advice. Individual results vary.
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
