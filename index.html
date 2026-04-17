@@ -162,7 +162,41 @@
       position: relative;
       z-index: 1;
     }
-    .hero-svg { width: 100%; max-width: 500px; height: auto; }
+    .shader-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-img { 
+      width: 100%; 
+      height: auto; 
+      display: block;
+      animation: pulseLiquid 6s ease-in-out infinite;
+    }
+    .hero-shader {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255,255,255,0.6) 50%, rgba(255,215,0,0.3) 55%, transparent 60%, transparent 100%);
+      background-size: 200% 100%;
+      mix-blend-mode: overlay;
+      -webkit-mask-image: url('hero-animation.svg');
+      -webkit-mask-size: 100% 100%;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      animation: sweepShader 4s linear infinite;
+    }
+    @keyframes sweepShader {
+      0% { background-position: 150% 0; }
+      100% { background-position: -150% 0; }
+    }
+    @keyframes pulseLiquid {
+      0% { filter: hue-rotate(0deg) brightness(1) saturate(1) contrast(1); transform: scale(1); }
+      50% { filter: hue-rotate(8deg) brightness(1.08) saturate(1.15) contrast(1.05); transform: scale(1.01); }
+      100% { filter: hue-rotate(0deg) brightness(1) saturate(1) contrast(1); transform: scale(1); }
+    }
 
     /* ── PROOF BAR ── */
     .proof-bar {
@@ -615,95 +649,12 @@
     <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
   </div>
 
-  <!-- Dynamic Partner SVG — green + gold watercolor figures -->
+  <!-- Dynamic animated logo of overlapping runners -->
   <div class="hero-visual">
-    <svg class="hero-svg" viewBox="0 0 520 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <!-- Watercolor displacement filter — green -->
-        <filter id="wc-g" x="-30%" y="-30%" width="160%" height="160%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.022 0.032" numOctaves="6" seed="4" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" result="d"/>
-          <feGaussianBlur in="d" stdDeviation="2.8"/>
-        </filter>
-        <!-- Watercolor displacement filter — gold -->
-        <filter id="wc-au" x="-30%" y="-30%" width="160%" height="160%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.028 0.022" numOctaves="6" seed="9" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="13" xChannelSelector="G" yChannelSelector="R" result="d"/>
-          <feGaussianBlur in="d" stdDeviation="2.2"/>
-        </filter>
-        <!-- Overlap blend -->
-        <filter id="wc-blend" x="-30%" y="-30%" width="160%" height="160%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="2" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="d"/>
-          <feGaussianBlur in="d" stdDeviation="5"/>
-        </filter>
-        <linearGradient id="gg" x1="0.2" y1="0" x2="0.8" y2="1">
-          <stop offset="0%" stop-color="#2e7d44" stop-opacity="0.95"/>
-          <stop offset="55%" stop-color="#1c5c30" stop-opacity="0.90"/>
-          <stop offset="100%" stop-color="#0d3a1c" stop-opacity="0.82"/>
-        </linearGradient>
-        <linearGradient id="ag" x1="0.1" y1="0" x2="0.9" y2="1">
-          <stop offset="0%" stop-color="#d8b545" stop-opacity="0.93"/>
-          <stop offset="50%" stop-color="#c49a2a" stop-opacity="0.88"/>
-          <stop offset="100%" stop-color="#96751c" stop-opacity="0.78"/>
-        </linearGradient>
-      </defs>
-
-      <!-- GREEN FIGURE — forward sprint lunge, leaning right (Oracle expression) -->
-      <g filter="url(#wc-g)" opacity="0.95">
-        <!-- Head -->
-        <ellipse cx="172" cy="88" rx="31" ry="33" fill="url(#gg)"/>
-        <!-- Neck -->
-        <ellipse cx="181" cy="123" rx="13" ry="18" fill="url(#gg)"/>
-        <!-- Torso — leaning forward ~30 deg -->
-        <ellipse cx="208" cy="218" rx="42" ry="74" transform="rotate(-26 208 218)" fill="url(#gg)"/>
-        <!-- Hip mass -->
-        <ellipse cx="200" cy="305" rx="38" ry="40" fill="url(#gg)"/>
-        <!-- Back arm (left, sweeping behind) -->
-        <ellipse cx="145" cy="198" rx="17" ry="54" transform="rotate(28 145 198)" fill="url(#gg)"/>
-        <ellipse cx="114" cy="253" rx="13" ry="40" transform="rotate(50 114 253)" fill="url(#gg)"/>
-        <!-- Front arm (right, pumping forward) -->
-        <ellipse cx="264" cy="162" rx="15" ry="52" transform="rotate(-52 264 162)" fill="url(#gg)"/>
-        <ellipse cx="298" cy="118" rx="11" ry="38" transform="rotate(-30 298 118)" fill="url(#gg)"/>
-        <!-- Front leg (left, striding forward and bent) -->
-        <ellipse cx="228" cy="378" rx="26" ry="80" transform="rotate(12 228 378)" fill="url(#gg)"/>
-        <ellipse cx="250" cy="473" rx="20" ry="56" transform="rotate(-8 250 473)" fill="url(#gg)"/>
-        <!-- Back leg (right, extended behind) -->
-        <ellipse cx="162" cy="385" rx="23" ry="78" transform="rotate(-28 162 385)" fill="url(#gg)"/>
-        <ellipse cx="126" cy="474" rx="16" ry="52" transform="rotate(-18 126 474)" fill="url(#gg)"/>
-      </g>
-
-      <!-- GOLD FIGURE — explosive upward leap, slightly right (Catalyst expression) -->
-      <g filter="url(#wc-au)" opacity="0.91">
-        <!-- Head -->
-        <ellipse cx="335" cy="62" rx="30" ry="32" fill="url(#ag)"/>
-        <!-- Neck -->
-        <ellipse cx="332" cy="95" rx="12" ry="17" fill="url(#ag)"/>
-        <!-- Torso — upright, slight back lean in explosive leap -->
-        <ellipse cx="330" cy="190" rx="40" ry="76" transform="rotate(6 330 190)" fill="url(#ag)"/>
-        <!-- Hip mass -->
-        <ellipse cx="328" cy="308" rx="38" ry="38" fill="url(#ag)"/>
-        <!-- Left arm — reaching up-left in leap -->
-        <ellipse cx="270" cy="120" rx="14" ry="60" transform="rotate(-42 270 120)" fill="url(#ag)"/>
-        <ellipse cx="236" cy="72" rx="11" ry="44" transform="rotate(-22 236 72)" fill="url(#ag)"/>
-        <!-- Right arm — extending up-right -->
-        <ellipse cx="396" cy="110" rx="14" ry="64" transform="rotate(38 396 110)" fill="url(#ag)"/>
-        <ellipse cx="436" cy="60" rx="11" ry="46" transform="rotate(18 436 60)" fill="url(#ag)"/>
-        <!-- Left leg — bent forward/down -->
-        <ellipse cx="305" cy="398" rx="24" ry="80" transform="rotate(-10 305 398)" fill="url(#ag)"/>
-        <ellipse cx="278" cy="498" rx="18" ry="54" transform="rotate(22 278 498)" fill="url(#ag)"/>
-        <!-- Right leg — angling back -->
-        <ellipse cx="368" cy="406" rx="22" ry="78" transform="rotate(22 368 406)" fill="url(#ag)"/>
-        <ellipse cx="410" cy="505" rx="16" ry="50" transform="rotate(10 410 505)" fill="url(#ag)"/>
-      </g>
-
-      <!-- Overlap area — translucent blend where green + gold merge -->
-      <ellipse cx="265" cy="320" rx="50" ry="110" fill="#7a6010" opacity="0.18" filter="url(#wc-blend)"/>
-      <ellipse cx="260" cy="200" rx="35" ry="70" fill="#4a7a20" opacity="0.12" filter="url(#wc-blend)"/>
-
-      <!-- Subtle brand watermark -->
-      <text x="260" y="580" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#1c5c30" letter-spacing="4" opacity="0.45">RVA HEALTH PARTNER</text>
-    </svg>
+    <div class="shader-wrapper">
+      <img src="hero-animation.svg" class="hero-img" alt="Green and gold logo graphic">
+      <div class="hero-shader"></div>
+    </div>
   </div>
 </div>
 
