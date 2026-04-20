@@ -892,11 +892,13 @@
     .step-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
+
     .step-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
       border-top-color: var(--gold);
     }
+
     .step-card:hover .step-num {
       color: var(--gold);
       transition: color 0.3s ease;
@@ -905,10 +907,12 @@
     .package-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .package-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
     }
+
     .package-card.featured:hover {
       border-color: var(--gold-light);
       box-shadow: 0 16px 48px rgba(196, 154, 42, 0.2);
@@ -917,10 +921,12 @@
     .package-feature {
       transition: background 0.25s ease, padding-left 0.25s ease;
     }
+
     .package-feature:hover {
       background: var(--green-faint);
       padding-left: 8px;
     }
+
     .package-feature:hover .check {
       transform: scale(1.2);
       transition: transform 0.2s ease;
@@ -930,10 +936,12 @@
       transition: border-color 0.3s ease, padding-left 0.3s ease;
       border-left: 3px solid transparent;
     }
+
     .benefit-block:hover {
       border-left-color: var(--gold);
       padding-left: 16px;
     }
+
     .benefit-block:hover h3 {
       color: var(--green);
       transition: color 0.3s ease;
@@ -942,16 +950,20 @@
     .bad-vs-good {
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+
     .bad-vs-good:hover {
       transform: scale(1.01);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
 
-    .btn-primary, .nav-cta {
+    .btn-primary,
+    .nav-cta {
       position: relative;
       overflow: hidden;
     }
-    .btn-primary::after, .nav-cta::after {
+
+    .btn-primary::after,
+    .nav-cta::after {
       content: '';
       position: absolute;
       top: 0;
@@ -961,17 +973,21 @@
       background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
       transition: left 0.5s ease;
     }
-    .btn-primary:hover::after, .nav-cta:hover::after {
+
+    .btn-primary:hover::after,
+    .nav-cta:hover::after {
       left: 100%;
     }
 
     .proof-item {
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
+
     .proof-item:hover {
       transform: translateY(-2px);
       opacity: 1 !important;
     }
+
     .proof-item:hover .proof-icon {
       transform: scale(1.2);
       transition: transform 0.2s ease;
@@ -981,6 +997,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
       border-left: 4px solid transparent;
     }
+
     .authority-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -990,6 +1007,7 @@
     .founding-block {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .founding-block:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
@@ -998,6 +1016,7 @@
     .faq-item {
       transition: background 0.25s ease;
     }
+
     .faq-item:hover {
       background: var(--green-faint);
       border-radius: 8px;
@@ -1006,10 +1025,12 @@
     .timeline-steps li {
       transition: transform 0.2s ease, padding-left 0.2s ease;
     }
+
     .timeline-steps li:hover {
       transform: translateX(6px);
       padding-left: 4px;
     }
+
     .timeline-steps li:hover .step-marker {
       transform: scale(1.15);
       transition: transform 0.2s ease;
@@ -1018,6 +1039,7 @@
     .not-item {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .not-item:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -1026,6 +1048,7 @@
     .trust-item {
       transition: transform 0.2s ease;
     }
+
     .trust-item:hover {
       transform: translateY(-2px);
     }
@@ -1033,12 +1056,15 @@
     .comparison-table tr {
       transition: transform 0.15s ease;
     }
+
     .comparison-table tbody tr:hover {
       transform: scale(1.005);
     }
+
     .comparison-table .yes {
       transition: transform 0.2s ease;
     }
+
     .comparison-table tbody tr:hover .yes {
       transform: scale(1.3);
     }
@@ -1046,6 +1072,7 @@
     .nav-links a {
       position: relative;
     }
+
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -1056,6 +1083,7 @@
       background: var(--green);
       transition: width 0.3s ease, left 0.3s ease;
     }
+
     .nav-links a:hover::after {
       width: 100%;
       left: 0;
@@ -1148,8 +1176,8 @@
       <span class="hero-tag">Richmond, VA &nbsp;·&nbsp; Private Coaching Practice</span>
       <h1>GLP-1 Medications Help You Lose Weight.<br><em>Strength Training Determines Whether You Lose Fat — or
           Muscle.</em><br>We're the Only Program in Richmond That Does Both.</h1>
-      <p class="hero-sub">Every program starts with DEXA body composition scanning, resting metabolic rate
-        testing, and bloodwork — not estimates. Your strength program and nutrition targets
+      <p class="hero-sub">Every program starts with body composition scanning, resting metabolic rate
+        testing, and bloodwork. Your strength program and nutrition targets
         get built from those numbers, then recalibrated every four weeks.
       </p>
       <p class="hero-sub" style="margin-top: 0; margin-bottom: 38px;">Whether medication is part of your picture or not,
@@ -1196,8 +1224,7 @@
           panel. Fitness screening. <br><br>You'll know exactly how much lean mass you're carrying,
           where your metabolism sits, and what your body needs before we write a single line of
           programming.<br><br>Already on a GLP-1? We start here specifically because we need your current body
-          composition picture before another week on medication passes. The DEXA at intake
-          is the most important data point in the program.
+          composition picture before another week on medication passes.
         </p>
       </div>
       <div class="step-card">
@@ -1215,7 +1242,8 @@
       <div class="step-card">
         <div class="step-num">03</div>
         <h3>Execute, Adjust, Recompose</h3>
-        <p>Weekly in-person training sessions at private studio. Program updates every 4 weeks based on how your body is
+        <p>Weekly 50 minute training sessions at private studio in near West End. Program updates every 4 weeks based on
+          how your body is
           actually responding. Direct coach access throughout.<br><br>At 12 weeks, we rescan and retest — so you see
           exactly what changed in fat mass, lean mass, and metabolic markers. Not just the scale.<br><br>Most clients
           continue past the initial 12 weeks. At the rescan, we review the data and plan the next phase. Transformation
@@ -1432,7 +1460,7 @@
     <span class="section-label" style="color: var(--gold-light);">Ready to Stop Guessing?</span>
     <h2>Start Measuring.</h2>
     <p>Most people spinning their wheels on weight loss, inconsistent training, and generic nutrition plans aren't
-      failing because they lack willpower. They're failing because nobody has ever built them a real system.</p>
+      failing because they lack willpower. They're failing because nobody has ever built them a real Solution.</p>
     <a href="#apply" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
     <div class="trust-row">
       <span class="trust-item" style="color: rgba(255,255,255,0.7);">🏥 Physician-supervised through Asher Med</span>
