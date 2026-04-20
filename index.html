@@ -76,7 +76,7 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--text-muted);
-      transition: color 0.2s;
+      transition: color 0.45s;
     }
 
     .nav-links a:hover {
@@ -91,7 +91,7 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 15px;
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.45s, transform 0.45s;
     }
 
     .nav-cta:hover {
@@ -171,7 +171,7 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 17px;
-      transition: all 0.2s;
+      transition: all 0.45s;
       letter-spacing: -0.2px;
     }
 
@@ -795,7 +795,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      transition: color 0.2s;
+      transition: color 0.45s;
     }
 
     .faq-q:hover {
@@ -806,7 +806,7 @@
       font-size: 24px;
       color: var(--green);
       flex-shrink: 0;
-      transition: transform 0.25s;
+      transition: transform 0.45s;
       line-height: 1;
     }
 
@@ -890,7 +890,7 @@
 
     /* ── MICRO-INTERACTIONS ── */
     .step-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .step-card:hover {
@@ -901,11 +901,11 @@
 
     .step-card:hover .step-num {
       color: var(--gold);
-      transition: color 0.3s ease;
+      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .package-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .package-card:hover {
@@ -919,7 +919,7 @@
     }
 
     .package-feature {
-      transition: background 0.25s ease, padding-left 0.25s ease;
+      transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .package-feature:hover {
@@ -929,11 +929,11 @@
 
     .package-feature:hover .check {
       transform: scale(1.2);
-      transition: transform 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .benefit-block {
-      transition: border-color 0.3s ease, padding-left 0.3s ease;
+      transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       border-left: 3px solid transparent;
     }
 
@@ -944,11 +944,11 @@
 
     .benefit-block:hover h3 {
       color: var(--green);
-      transition: color 0.3s ease;
+      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .bad-vs-good {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .bad-vs-good:hover {
@@ -971,7 +971,7 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
-      transition: left 0.5s ease;
+      transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .btn-primary:hover::after,
@@ -980,7 +980,7 @@
     }
 
     .proof-item {
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .proof-item:hover {
@@ -990,11 +990,11 @@
 
     .proof-item:hover .proof-icon {
       transform: scale(1.2);
-      transition: transform 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .authority-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       border-left: 4px solid transparent;
     }
 
@@ -1005,7 +1005,7 @@
     }
 
     .founding-block {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .founding-block:hover {
@@ -1014,7 +1014,7 @@
     }
 
     .faq-item {
-      transition: background 0.25s ease;
+      transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .faq-item:hover {
@@ -1023,7 +1023,7 @@
     }
 
     .timeline-steps li {
-      transition: transform 0.2s ease, padding-left 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .timeline-steps li:hover {
@@ -1033,11 +1033,11 @@
 
     .timeline-steps li:hover .step-marker {
       transform: scale(1.15);
-      transition: transform 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .not-item {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .not-item:hover {
@@ -1046,7 +1046,7 @@
     }
 
     .trust-item {
-      transition: transform 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .trust-item:hover {
@@ -1054,7 +1054,7 @@
     }
 
     .comparison-table tr {
-      transition: transform 0.15s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .comparison-table tbody tr:hover {
@@ -1062,7 +1062,7 @@
     }
 
     .comparison-table .yes {
-      transition: transform 0.2s ease;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .comparison-table tbody tr:hover .yes {
@@ -1081,7 +1081,7 @@
       width: 0;
       height: 2px;
       background: var(--green);
-      transition: width 0.3s ease, left 0.3s ease;
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .nav-links a:hover::after {
@@ -1155,6 +1155,27 @@
       }
     }
 
+
+    /* ── CALM PHYSICS: Scroll reveals ── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
+    [data-reveal][data-delay="2"] { transition-delay: 0.22s; }
+    [data-reveal][data-delay="3"] { transition-delay: 0.34s; }
+    [data-reveal][data-delay="4"] { transition-delay: 0.46s; }
+    [data-reveal][data-delay="5"] { transition-delay: 0.58s; }
+
+    /* Hero parallax will-change */
+    .hero-visual { will-change: transform; }
+
     /* ── APPLY FORM ── */
     .apply-form-section {
       background: var(--green-dark);
@@ -1202,7 +1223,7 @@
       font-family: 'Outfit', sans-serif;
       font-size: 16px;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color 0.45s;
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
@@ -1224,7 +1245,7 @@
       font-weight: 700;
       cursor: pointer;
       margin-top: 8px;
-      transition: background 0.2s, transform 0.1s;
+      transition: background 0.45s, transform 0.1s;
     }
     .form-submit-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
     .form-note { color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; margin-top: 16px; }
@@ -1287,6 +1308,7 @@
     }
   }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 </head>
 
 <body>
@@ -2012,6 +2034,63 @@
   </footer>
 
   <script>
+    // ── LENIS SMOOTH SCROLL ──
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothTouch: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // ── SCROLL REVEALS ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -48px 0px' });
+
+    // Auto-tag elements and stagger siblings
+    const revealGroups = [
+      ['section', false],
+      ['.proof-bar', false],
+      ['.step-card', true],
+      ['.benefit-card', true],
+      ['.package-card', true],
+      ['.faq-item', true],
+      ['.authority-card', true],
+      ['.founding-block', false],
+      ['.final-copy', false],
+      ['.apply-form-section', false],
+    ];
+
+    revealGroups.forEach(([sel, stagger]) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.setAttribute('data-reveal', '');
+        if (stagger && i > 0 && i <= 5) el.setAttribute('data-delay', i.toString());
+        revealObserver.observe(el);
+      });
+    });
+
+    // ── HERO PARALLAX ──
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+      lenis.on('scroll', ({ scroll }) => {
+        const limit = document.querySelector('.hero')?.offsetHeight || 700;
+        if (scroll < limit) {
+          heroVisual.style.transform = `translateY(${scroll * 0.16}px)`;
+        }
+      });
+    }
+
+    // ── FAQ TOGGLE ──
     function toggleFaq(btn) {
       const answer = btn.nextElementSibling;
       const isOpen = answer.classList.contains('open');
@@ -2023,11 +2102,14 @@
       }
     }
 
-    // Smooth scroll
+    // ── SMOOTH ANCHOR SCROLL via Lenis ──
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         const target = document.querySelector(link.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: -80, duration: 1.6 });
+        }
       });
     });
   </script>
