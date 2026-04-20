@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rvahealthpartner.com/sitemap.xml
