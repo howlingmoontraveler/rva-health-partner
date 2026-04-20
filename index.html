@@ -1156,6 +1156,70 @@
     }
 
 
+
+    /* ── CUSTOM CURSOR ── */
+    @media (hover: hover) and (pointer: fine) {
+      *, *::before, *::after { cursor: none !important; }
+      .cursor-dot {
+        position: fixed;
+        top: 0; left: 0;
+        width: 7px; height: 7px;
+        background: var(--green);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+        will-change: left, top;
+        transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .cursor-ring {
+        position: fixed;
+        top: 0; left: 0;
+        width: 34px; height: 34px;
+        border: 1.5px solid var(--green);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99998;
+        transform: translate(-50%, -50%);
+        opacity: 0.55;
+        will-change: left, top;
+        transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      /* Link / button hover: dot fills gold, ring grows */
+      body.cursor-on-link .cursor-dot {
+        width: 11px; height: 11px;
+        background: var(--gold);
+      }
+      body.cursor-on-link .cursor-ring {
+        width: 50px; height: 50px;
+        border-color: var(--gold);
+        opacity: 0.4;
+      }
+      /* Text input hover: ring collapses to thin bar */
+      body.cursor-on-text .cursor-ring {
+        width: 2px; height: 22px;
+        border-radius: 2px;
+        opacity: 0.5;
+      }
+      /* Click feedback */
+      body.cursor-clicking .cursor-dot {
+        width: 5px; height: 5px;
+        opacity: 0.7;
+      }
+      /* Fade in after mount */
+      .cursor-dot, .cursor-ring { opacity: 0; }
+      .cursor-dot.cursor-ready { opacity: 1; }
+      .cursor-ring.cursor-ready { opacity: 0.55; }
+      body.cursor-on-link .cursor-ring.cursor-ready { opacity: 0.4; }
+      body.cursor-on-text .cursor-ring.cursor-ready { opacity: 0.5; }
+    }
+
     /* ── CALM PHYSICS: Scroll reveals ── */
     [data-reveal] {
       opacity: 0;
@@ -2034,6 +2098,61 @@
   </footer>
 
   <script>
+
+    // ── CUSTOM CURSOR ──
+    (function() {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const dot  = document.createElement('div');
+        const ring = document.createElement('div');
+        dot.className  = 'cursor-dot';
+        ring.className = 'cursor-ring';
+        document.body.appendChild(dot);
+        document.body.appendChild(ring);
+
+        let mx = -200, my = -200, rx = -200, ry = -200;
+        let mounted = false;
+
+        document.addEventListener('mousemove', e => {
+          mx = e.clientX; my = e.clientY;
+          if (!mounted) {
+            mounted = true;
+            dot.classList.add('cursor-ready');
+            ring.classList.add('cursor-ready');
+          }
+        });
+
+        document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
+        document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-clicking'));
+
+        // Link/button hover state
+        document.querySelectorAll('a, button, .btn-primary, .btn-gold, .faq-q, .package-card, .nav-cta, [role="button"]')
+          .forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-on-link'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-on-link'));
+          });
+
+        // Text input hover state
+        document.querySelectorAll('input, textarea, select')
+          .forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-on-text'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-on-text'));
+          });
+
+        // Animate: dot snaps, ring lerps
+        const LERP = 0.09;
+        function tick() {
+          dot.style.left  = mx + 'px';
+          dot.style.top   = my + 'px';
+          rx += (mx - rx) * LERP;
+          ry += (my - ry) * LERP;
+          ring.style.left = rx + 'px';
+          ring.style.top  = ry + 'px';
+          requestAnimationFrame(tick);
+        }
+        tick();
+      }
+    })();
+
     // ── LENIS SMOOTH SCROLL ──
     const lenis = new Lenis({
       duration: 1.4,
