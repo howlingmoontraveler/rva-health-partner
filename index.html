@@ -2043,7 +2043,7 @@
   <section class="apply-form-section" id="apply-form">
     <h2>Apply for Your Strategy Session</h2>
     <p class="form-sub">60 minutes. No obligation. Every application reviewed within 24 hours.</p>
-    <form class="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="apply-form" action="https://script.google.com/macros/s/AKfycbx_g7-f7r5b-P0zQp6VfyP1D49HBpiB_ZsjGPus3NLVNXUgu6u6E0voyZNDp7IjvRAlnQ/exec" method="POST" id="strategy-form">
       <div class="form-row">
         <div class="form-group">
           <label for="f-name">Full Name</label>
@@ -2082,7 +2082,6 @@
         <label for="f-context">Anything we should know going in? (optional)</label>
         <textarea id="f-context" name="context" placeholder="Training history, current medications, specific concerns..."></textarea>
       </div>
-      <input type="hidden" name="_subject" value="New Strategy Session Application — RVA Health Partner">
       <button type="submit" class="form-submit-btn">→ Submit Application</button>
       <p class="form-note">Applications reviewed within 24 hours. No spam, ever.</p>
     </form>
@@ -2232,6 +2231,41 @@
         }
       });
     });
+
+    // ── STRATEGY SESSION FORM ──
+    const strategyForm = document.getElementById('strategy-form');
+    if (strategyForm) {
+      strategyForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = strategyForm.querySelector('.form-submit-btn');
+        const original = btn.textContent;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const data = new URLSearchParams();
+        data.append('name',         strategyForm.querySelector('[name="name"]').value);
+        data.append('email',        strategyForm.querySelector('[name="email"]').value);
+        data.append('phone',        strategyForm.querySelector('[name="phone"]').value);
+        data.append('glp1',         strategyForm.querySelector('[name="glp1_status"]').value);
+        data.append('primary_goal', strategyForm.querySelector('[name="primary_goal"]').value);
+        const ctx = strategyForm.querySelector('[name="context"]');
+        data.append('context',      ctx ? ctx.value : '');
+        data.append('source', 'Website');
+
+        try {
+          await fetch('https://script.google.com/macros/s/AKfycbx_g7-f7r5b-P0zQp6VfyP1D49HBpiB_ZsjGPus3NLVNXUgu6u6E0voyZNDp7IjvRAlnQ/exec', {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors'
+          });
+          strategyForm.innerHTML = '<div style="text-align:center;padding:40px 0"><p style="font-size:1.3rem;font-weight:600;color:var(--gold)">Application received.</p><p style="margin-top:12px;color:#ccc">You\'ll hear from John within 24 hours.</p></div>';
+        } catch (err) {
+          btn.textContent = original;
+          btn.disabled = false;
+          alert('Something went wrong. Email john@rvahealthpartner.com directly.');
+        }
+      });
+    }
   </script>
 
 </body>
