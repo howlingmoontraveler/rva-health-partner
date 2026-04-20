@@ -1154,7 +1154,139 @@
         display: none;
       }
     }
+
+    /* ── APPLY FORM ── */
+    .apply-form-section {
+      background: var(--green-dark);
+      padding: 100px 60px;
+      text-align: center;
+    }
+    .apply-form-section h2 {
+      color: var(--white);
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .apply-form-section .form-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 18px;
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .apply-form {
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 14px 18px;
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--green-dark); color: var(--white); }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 18px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .form-submit-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .form-note { color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; margin-top: 16px; }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .apply-form-section { padding: 70px 24px; }
+    }
   </style>
+  <meta name="description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork — not guesswork. Physician-supervised through Asher Med.">
+  <link rel="canonical" href="https://rvahealthpartner.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rvahealthpartner.com/">
+  <meta property="og:title" content="RVA Health Partner — Body Recomposition &amp; Clinical Coaching, Richmond VA">
+  <meta property="og:description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR, and bloodwork. Physician-supervised clinical access through Asher Med.">
+  <meta property="og:image" content="https://rvahealthpartner.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RVA Health Partner — Body Recomposition &amp; Clinical Coaching">
+  <meta name="twitter:description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "RVA Health Partner",
+    "description": "Strength coaching and clinical health programs in Richmond, VA. Body composition scanning, RMR testing, precision nutrition, and physician-supervised GLP-1 support through Asher Med.",
+    "url": "https://rvahealthpartner.com",
+    "email": "betterforyall@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Richmond",
+      "addressRegion": "VA",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Richmond"},
+      {"@type": "City", "name": "Short Pump"},
+      {"@type": "City", "name": "Midlothian"},
+      {"@type": "City", "name": "Henrico"}
+    ],
+    "priceRange": "$$$"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "John Griffith",
+    "jobTitle": "Strength and Conditioning Coach",
+    "description": "Strength and conditioning coach in Richmond, VA. B.S. Microbiology. Evidence-based programming, nutritional biochemistry, and biomarker-based coaching.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "RVA Health Partner",
+      "url": "https://rvahealthpartner.com"
+    },
+    "url": "https://rvahealthpartner.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Richmond",
+      "addressRegion": "VA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -1167,7 +1299,7 @@
       <li><a href="#packages">Programs</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#apply" class="nav-cta">Apply Now</a>
+    <a href="#apply-form" class="nav-cta">Apply Now</a>
   </nav>
 
   <!-- ── HERO ── -->
@@ -1182,7 +1314,7 @@
       </p>
       <p class="hero-sub" style="margin-top: 0; margin-bottom: 38px;">Whether medication is part of your picture or not,
         the baseline is the same. The testing doesn't change based on what you're managing.</p>
-      <a href="#apply" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
+      <a href="#apply-form" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
       <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
     </div>
 
@@ -1389,7 +1521,7 @@
             </div>
           </div>
           <div style="margin-top: 28px;">
-            <a href="#apply" class="btn-primary" style="display: block; text-align: center;">→ Apply for Foundation</a>
+            <a href="#apply-form" class="btn-primary" style="display: block; text-align: center;">→ Apply for Foundation</a>
           </div>
         </div>
       </div>
@@ -1447,7 +1579,7 @@
             </div>
           </div>
           <div style="margin-top: 28px;">
-            <a href="#apply" class="btn-primary btn-gold" style="display: block; text-align: center;">→ Apply for
+            <a href="#apply-form" class="btn-primary btn-gold" style="display: block; text-align: center;">→ Apply for
               Accelerated</a>
           </div>
         </div>
@@ -1460,8 +1592,8 @@
     <span class="section-label" style="color: var(--gold-light);">Ready to Stop Guessing?</span>
     <h2>Start Measuring.</h2>
     <p>Most people spinning their wheels on weight loss, inconsistent training, and generic nutrition plans aren't
-      failing because they lack willpower. They're failing because nobody has ever built them a real Solution.</p>
-    <a href="#apply" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
+      failing because they lack willpower. They're failing because nobody has ever built them a real solution.</p>
+    <a href="#apply-form" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
     <div class="trust-row">
       <span class="trust-item" style="color: rgba(255,255,255,0.7);">🏥 Physician-supervised through Asher Med</span>
       <span class="trust-item" style="color: rgba(255,255,255,0.7);">📊 Built on Body Composition, RMR, and
@@ -1572,7 +1704,7 @@
         partnership are fully operational. What early clients get is reduced pricing,
         direct access to John, and their results documented as the first case studies
         for the program.</p>
-      <a href="#apply" class="btn-primary">→ Apply Now — Limited Spots</a>
+      <a href="#apply-form" class="btn-primary">→ Apply Now — Limited Spots</a>
     </div>
 
     <div class="authority-block">
@@ -1581,7 +1713,7 @@
         <p>Strength and conditioning coach based in Richmond, Virginia. Deep background in evidence-based programming,
           nutritional biochemistry, and biomarker-based coaching. B.S. in Microbiology. Ran a beverage manufacturing
           operation as
-          CEO for 10 years before returning to the work that matters — helping people build Generational Health.</p>
+          CEO for 10 years before returning to the work that matters — helping people build generational health.</p>
       </div>
       <div class="authority-card">
         <h4>Clinical Partner: Asher Med</h4>
@@ -1806,7 +1938,7 @@
       <p>That's what RVA Health Partner exists to do.</p>
     </div>
 
-    <a href="#apply" class="btn-primary" style="font-size: 18px; padding: 18px 44px;">→ Apply for Your Strategy
+    <a href="#apply-form" class="btn-primary" style="font-size: 18px; padding: 18px 44px;">→ Apply for Your Strategy
       Session</a>
 
     <div class="trust-row" style="margin-top: 32px;">
@@ -1816,6 +1948,58 @@
       <span class="trust-item" style="color: var(--text-muted);">🚫 No long-term contract required to apply</span>
     </div>
   </div>
+
+
+  <!-- ── APPLY FORM ── -->
+  <!-- SETUP: Replace YOUR_FORM_ID with your Formspree form ID.
+       Free setup at formspree.io — create account, New Form, copy the ID (looks like xeojpnwa). -->
+  <section class="apply-form-section" id="apply-form">
+    <h2>Apply for Your Strategy Session</h2>
+    <p class="form-sub">60 minutes. No obligation. Every application reviewed within 24 hours.</p>
+    <form class="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="f-name">Full Name</label>
+          <input type="text" id="f-name" name="name" placeholder="John Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="f-phone">Phone</label>
+          <input type="tel" id="f-phone" name="phone" placeholder="(804) 555-0100" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="f-glp1">Are you currently using a GLP-1 medication?</label>
+        <select id="f-glp1" name="glp1_status" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="yes">Yes — currently on semaglutide or tirzepatide</option>
+          <option value="considering">No — but considering it</option>
+          <option value="no">No — interested in the Foundation program</option>
+          <option value="stopped">Stopped and looking for support</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="f-goal">Primary goal</label>
+        <select id="f-goal" name="primary_goal" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="recomposition">Body recomposition — lose fat, keep muscle</option>
+          <option value="strength">Build strength and functional fitness</option>
+          <option value="metabolic">Improve metabolic health markers</option>
+          <option value="all">All of the above</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="f-context">Anything we should know going in? (optional)</label>
+        <textarea id="f-context" name="context" placeholder="Training history, current medications, specific concerns..."></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="New Strategy Session Application — RVA Health Partner">
+      <button type="submit" class="form-submit-btn">→ Submit Application</button>
+      <p class="form-note">Applications reviewed within 24 hours. No spam, ever.</p>
+    </form>
+  </section>
 
   <!-- ── FOOTER ── -->
   <footer>
