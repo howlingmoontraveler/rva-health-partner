@@ -1,6 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/", "dest": "/rva-health-partner/index.html" }
+    { "src": "/", "dest": "/index.html" }
   ]
 }
