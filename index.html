@@ -6,23 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RVA Health Partner — Body Recomposition &amp; Clinical Coaching, Richmond VA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --green: #1c5c30;
-      --green-light: #266b3c;
-      --green-dark: #0f3a1e;
-      --green-faint: #edf5ef;
-      --gold: #c49a2a;
-      --gold-light: #d4aa40;
-      --gold-faint: #fdf8ed;
-      --cream: #f4f0e7;
+      /* Design System — Rolex-derived palette */
+      --green: #006039;
+      --green-light: #00784A;
+      --green-dark: #004428;
+      --green-faint: #f0f7f3;
+      --gold: #A37E2C;
+      --gold-light: #B8923A;
+      --gold-faint: #faf6ee;
+      --cream: #F5F0E8;
       --cream-dark: #e5dece;
-      --text: #1a1a1a;
+      --text: #1A1A1A;
       --text-muted: #5a5a5a;
       --white: #ffffff;
-      --border: #d8d2c4;
+      --border: rgba(26,26,26,0.12);
+      --border-strong: rgba(26,26,26,0.24);
+
+      /* Shadow system — 3 levels */
+      --shadow-1: 0 1px 3px rgba(26,26,26,0.08), 0 1px 2px rgba(26,26,26,0.06);
+      --shadow-3: 0 4px 12px rgba(26,26,26,0.1), 0 2px 4px rgba(26,26,26,0.06);
+      --shadow-4: 0 12px 40px rgba(26,26,26,0.15), 0 4px 12px rgba(26,26,26,0.08);
+
+      /* House easing */
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+      /* Typography */
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
     }
 
     * {
@@ -32,7 +47,7 @@
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-body);
       color: var(--text);
       background: var(--white);
       line-height: 1.65;
@@ -44,21 +59,23 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(10px);
+      background: rgba(245, 240, 232, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 66px;
+      height: 72px;
     }
 
     .nav-logo {
-      font-size: 19px;
-      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
       color: var(--green);
-      letter-spacing: -0.4px;
+      letter-spacing: 0.02em;
     }
 
     .nav-logo span {
@@ -80,28 +97,31 @@
     }
 
     .nav-links a:hover {
-      color: var(--green);
+      color: var(--text);
     }
 
     .nav-cta {
       background: var(--green);
       color: white;
       padding: 10px 24px;
-      border-radius: 6px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 15px;
-      transition: background 0.45s, transform 0.45s;
+      transition: background 240ms var(--ease), transform 120ms var(--ease);
     }
 
     .nav-cta:hover {
       background: var(--green-dark);
-      transform: translateY(-1px);
+    }
+
+    .nav-cta:active {
+      transform: scale(0.98);
     }
 
     /* ── HERO ── */
     .hero {
-      min-height: calc(100vh - 66px);
+      min-height: calc(100vh - 72px);
       background: var(--cream);
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -141,10 +161,11 @@
     }
 
     .hero h1 {
+      font-family: var(--font-display);
       font-size: 44px;
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.12;
-      letter-spacing: -1px;
+      letter-spacing: -0.01em;
       margin-bottom: 26px;
       color: var(--text);
     }
@@ -169,16 +190,18 @@
       padding: 16px 34px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 17px;
-      transition: all 0.45s;
-      letter-spacing: -0.2px;
+      transition: background 240ms var(--ease), transform 120ms var(--ease);
+      letter-spacing: 0;
     }
 
     .btn-primary:hover {
       background: var(--green-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(28, 92, 48, 0.28);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
     }
 
     .btn-gold {
@@ -186,8 +209,7 @@
     }
 
     .btn-gold:hover {
-      background: #a8821f;
-      box-shadow: 0 8px 28px rgba(196, 154, 42, 0.28);
+      background: #8B6B24;
     }
 
     .hero-fine {
@@ -300,8 +322,8 @@
 
     .section-label {
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 14px;
@@ -309,9 +331,10 @@
     }
 
     h2 {
+      font-family: var(--font-display);
       font-size: 40px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
       line-height: 1.15;
       margin-bottom: 18px;
     }
@@ -334,14 +357,15 @@
     .step-card {
       padding: 40px 36px;
       background: white;
-      border-radius: 14px;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-      border-top: 4px solid var(--green);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
     }
 
     .step-num {
+      font-family: var(--font-display);
       font-size: 52px;
-      font-weight: 800;
+      font-weight: 600;
       color: var(--cream-dark);
       line-height: 1;
       margin-bottom: 18px;
@@ -349,7 +373,7 @@
 
     .step-card h3 {
       font-size: 20px;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 14px;
       color: var(--green-dark);
     }
@@ -394,8 +418,9 @@
     }
 
     .benefit-block h3 {
+      font-family: var(--font-display);
       font-size: 25px;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 18px;
       line-height: 1.25;
     }
@@ -409,7 +434,7 @@
 
     .bad-line {
       font-size: 14.5px;
-      color: #9e3a3a;
+      color: #A0524A;
       margin-bottom: 10px;
       line-height: 1.6;
     }
@@ -441,13 +466,14 @@
 
     .package-card {
       background: white;
-      border-radius: 16px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
     }
 
     .package-card.featured {
-      border: 2px solid var(--gold);
+      border: 1px solid var(--gold);
     }
 
     .package-header {
@@ -457,7 +483,7 @@
     }
 
     .package-card.featured .package-header {
-      background: linear-gradient(140deg, #0f3a1e, #1c5c30);
+      background: var(--green-dark);
     }
 
     .package-badge {
@@ -474,8 +500,9 @@
     }
 
     .package-header h3 {
+      font-family: var(--font-display);
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 600;
     }
 
     .package-header p {
@@ -530,7 +557,9 @@
     }
 
     .mid-cta h2 {
+      font-family: var(--font-display);
       font-size: 42px;
+      font-weight: 600;
       margin-bottom: 20px;
     }
 
@@ -568,8 +597,8 @@
 
     .timeline-label {
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 18px;
@@ -629,11 +658,11 @@
     }
 
     .not-item {
-      background: #fdf2f2;
-      border: 1px solid #f0c0c0;
-      color: #9e3a3a;
+      background: #faf2f0;
+      border: 1px solid #e0c4be;
+      color: #A0524A;
       padding: 8px 16px;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 14px;
       font-weight: 500;
     }
@@ -646,16 +675,17 @@
 
     .founding-block {
       background: white;
-      border-radius: 16px;
+      border-radius: 8px;
       padding: 52px;
-      border-left: 6px solid var(--gold);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
       margin-bottom: 40px;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
     }
 
     .founding-block h3 {
+      font-family: var(--font-display);
       font-size: 26px;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 16px;
     }
 
@@ -675,9 +705,10 @@
 
     .authority-card {
       background: white;
-      border-radius: 14px;
+      border-radius: 8px;
       padding: 36px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
     }
 
     .authority-card h4 {
@@ -699,8 +730,9 @@
     .comparison-wrap {
       overflow-x: auto;
       margin-top: 48px;
-      border-radius: 14px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
     }
 
     .comparison-table {
@@ -760,12 +792,12 @@
     }
 
     .no {
-      color: #c0392b;
+      color: #A0524A;
       font-size: 19px;
     }
 
     .sometimes {
-      color: #c07a2b;
+      color: #8B7332;
       font-weight: 600;
       font-size: 13px;
     }
@@ -787,7 +819,7 @@
       cursor: pointer;
       padding: 24px 0;
       text-align: left;
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-body);
       font-size: 17px;
       font-weight: 600;
       color: var(--text);
@@ -795,7 +827,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      transition: color 0.45s;
+      transition: color 240ms var(--ease);
     }
 
     .faq-q:hover {
@@ -834,10 +866,11 @@
     }
 
     .final-cta h2 {
+      font-family: var(--font-display);
       font-size: 46px;
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.13;
-      letter-spacing: -1px;
+      letter-spacing: -0.01em;
       margin-bottom: 36px;
       max-width: 720px;
       margin-left: auto;
@@ -872,8 +905,9 @@
     }
 
     .footer-logo {
+      font-family: var(--font-display);
       font-size: 20px;
-      font-weight: 800;
+      font-weight: 600;
       color: white;
     }
 
@@ -890,36 +924,29 @@
 
     /* ── MICRO-INTERACTIONS ── */
     .step-card {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: box-shadow 240ms var(--ease), border-color 240ms var(--ease);
     }
 
     .step-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-      border-top-color: var(--gold);
+      box-shadow: var(--shadow-3);
+      border-color: var(--border-strong);
     }
 
     .step-card:hover .step-num {
       color: var(--gold);
-      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 240ms var(--ease);
     }
 
     .package-card {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: box-shadow 240ms var(--ease);
     }
 
     .package-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
-    }
-
-    .package-card.featured:hover {
-      border-color: var(--gold-light);
-      box-shadow: 0 16px 48px rgba(196, 154, 42, 0.2);
+      box-shadow: var(--shadow-3);
     }
 
     .package-feature {
-      transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: background 240ms var(--ease), padding-left 240ms var(--ease);
     }
 
     .package-feature:hover {
@@ -927,94 +954,53 @@
       padding-left: 8px;
     }
 
-    .package-feature:hover .check {
-      transform: scale(1.2);
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
     .benefit-block {
-      transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      border-left: 3px solid transparent;
+      transition: padding-left 240ms var(--ease);
     }
 
     .benefit-block:hover {
-      border-left-color: var(--gold);
       padding-left: 16px;
     }
 
     .benefit-block:hover h3 {
       color: var(--green);
-      transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: color 240ms var(--ease);
     }
 
     .bad-vs-good {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: box-shadow 240ms var(--ease);
     }
 
     .bad-vs-good:hover {
-      transform: scale(1.01);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    }
-
-    .btn-primary,
-    .nav-cta {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::after,
-    .nav-cta::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 50%, transparent 100%);
-      transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .btn-primary:hover::after,
-    .nav-cta:hover::after {
-      left: 100%;
+      box-shadow: var(--shadow-1);
     }
 
     .proof-item {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: opacity 240ms var(--ease);
     }
 
     .proof-item:hover {
-      transform: translateY(-2px);
       opacity: 1 !important;
     }
 
-    .proof-item:hover .proof-icon {
-      transform: scale(1.2);
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
     .authority-card {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      border-left: 4px solid transparent;
+      transition: box-shadow 240ms var(--ease);
     }
 
     .authority-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      border-left-color: var(--green);
+      box-shadow: var(--shadow-3);
     }
 
     .founding-block {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: box-shadow 240ms var(--ease);
     }
 
     .founding-block:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-3);
     }
 
     .faq-item {
-      transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: background 240ms var(--ease);
     }
 
     .faq-item:hover {
@@ -1023,70 +1009,40 @@
     }
 
     .timeline-steps li {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), padding-left 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: padding-left 240ms var(--ease);
     }
 
     .timeline-steps li:hover {
-      transform: translateX(6px);
       padding-left: 4px;
     }
 
-    .timeline-steps li:hover .step-marker {
-      transform: scale(1.15);
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
     .not-item {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: box-shadow 240ms var(--ease);
     }
 
     .not-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: var(--shadow-1);
     }
 
-    .trust-item {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    .comparison-table tbody tr:hover td {
+      background: #fafaf7;
     }
 
-    .trust-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .comparison-table tr {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .comparison-table tbody tr:hover {
-      transform: scale(1.005);
-    }
-
-    .comparison-table .yes {
-      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .comparison-table tbody tr:hover .yes {
-      transform: scale(1.3);
+    .comparison-table tbody tr:hover td:nth-child(2) {
+      background: rgba(0, 96, 57, 0.08);
     }
 
     .nav-links a {
       position: relative;
+      text-decoration: none;
+      text-decoration-color: transparent;
+      text-underline-offset: 4px;
+      transition: text-decoration-color 140ms var(--ease);
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--green);
-      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), left 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-      left: 0;
+    .nav-links a:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
     }
 
     /* ── RESPONSIVE ── */
@@ -1159,26 +1115,37 @@
 
     /* ── CUSTOM CURSOR ── */
     @media (hover: hover) and (pointer: fine) {
-      *, *::before, *::after { cursor: none !important; }
+
+      *,
+      *::before,
+      *::after {
+        cursor: none !important;
+      }
+
       .cursor-dot {
         position: fixed;
-        top: 0; left: 0;
-        width: 7px; height: 7px;
+        top: 0;
+        left: 0;
+        width: 7px;
+        height: 7px;
         background: var(--green);
         border-radius: 50%;
         pointer-events: none;
         z-index: 99999;
         transform: translate(-50%, -50%);
         will-change: left, top;
-        transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                    height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                    background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: width 240ms var(--ease),
+          height 240ms var(--ease),
+          background 240ms var(--ease),
+          opacity 240ms var(--ease);
       }
+
       .cursor-ring {
         position: fixed;
-        top: 0; left: 0;
-        width: 34px; height: 34px;
+        top: 0;
+        left: 0;
+        width: 34px;
+        height: 34px;
         border: 1.5px solid var(--green);
         border-radius: 50%;
         pointer-events: none;
@@ -1186,59 +1153,98 @@
         transform: translate(-50%, -50%);
         opacity: 0.55;
         will-change: left, top;
-        transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                    height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: width 240ms var(--ease),
+          height 240ms var(--ease),
+          border-color 240ms var(--ease),
+          opacity 240ms var(--ease);
       }
+
       /* Link / button hover: dot fills gold, ring grows */
       body.cursor-on-link .cursor-dot {
-        width: 11px; height: 11px;
+        width: 11px;
+        height: 11px;
         background: var(--gold);
       }
+
       body.cursor-on-link .cursor-ring {
-        width: 50px; height: 50px;
+        width: 50px;
+        height: 50px;
         border-color: var(--gold);
         opacity: 0.4;
       }
+
       /* Text input hover: ring collapses to thin bar */
       body.cursor-on-text .cursor-ring {
-        width: 2px; height: 22px;
+        width: 2px;
+        height: 22px;
         border-radius: 2px;
         opacity: 0.5;
       }
+
       /* Click feedback */
       body.cursor-clicking .cursor-dot {
-        width: 5px; height: 5px;
+        width: 5px;
+        height: 5px;
         opacity: 0.7;
       }
+
       /* Fade in after mount */
-      .cursor-dot, .cursor-ring { opacity: 0; }
-      .cursor-dot.cursor-ready { opacity: 1; }
-      .cursor-ring.cursor-ready { opacity: 0.55; }
-      body.cursor-on-link .cursor-ring.cursor-ready { opacity: 0.4; }
-      body.cursor-on-text .cursor-ring.cursor-ready { opacity: 0.5; }
+      .cursor-dot,
+      .cursor-ring {
+        opacity: 0;
+      }
+
+      .cursor-dot.cursor-ready {
+        opacity: 1;
+      }
+
+      .cursor-ring.cursor-ready {
+        opacity: 0.55;
+      }
+
+      body.cursor-on-link .cursor-ring.cursor-ready {
+        opacity: 0.4;
+      }
+
+      body.cursor-on-text .cursor-ring.cursor-ready {
+        opacity: 0.5;
+      }
     }
 
-    /* ── CALM PHYSICS: Scroll reveals ── */
+    /* ── SCROLL REVEALS ── */
     [data-reveal] {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(10px);
+      transition: opacity 480ms var(--ease),
+        transform 480ms var(--ease);
     }
+
     [data-reveal].is-visible {
       opacity: 1;
       transform: translateY(0);
     }
-    [data-reveal][data-delay="1"] { transition-delay: 0.1s; }
-    [data-reveal][data-delay="2"] { transition-delay: 0.22s; }
-    [data-reveal][data-delay="3"] { transition-delay: 0.34s; }
-    [data-reveal][data-delay="4"] { transition-delay: 0.46s; }
-    [data-reveal][data-delay="5"] { transition-delay: 0.58s; }
 
-    /* Hero parallax will-change */
-    .hero-visual { will-change: transform; }
+    [data-reveal][data-delay="1"] {
+      transition-delay: 0.1s;
+    }
+
+    [data-reveal][data-delay="2"] {
+      transition-delay: 0.22s;
+    }
+
+    [data-reveal][data-delay="3"] {
+      transition-delay: 0.34s;
+    }
+
+    [data-reveal][data-delay="4"] {
+      transition-delay: 0.46s;
+    }
+
+    [data-reveal][data-delay="5"] {
+      transition-delay: 0.58s;
+    }
+
+
 
     /* ── APPLY FORM ── */
     .apply-form-section {
@@ -1246,57 +1252,86 @@
       padding: 100px 60px;
       text-align: center;
     }
+
     .apply-form-section h2 {
       color: var(--white);
+      font-family: var(--font-display);
       font-size: 36px;
-      font-weight: 800;
+      font-weight: 600;
       margin-bottom: 12px;
     }
+
     .apply-form-section .form-sub {
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       font-size: 18px;
       margin-bottom: 48px;
       max-width: 560px;
       margin-left: auto;
       margin-right: auto;
     }
+
     .apply-form {
       max-width: 620px;
       margin: 0 auto;
       text-align: left;
     }
-    .form-group { margin-bottom: 20px; }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
     .form-group label {
       display: block;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       margin-bottom: 8px;
     }
+
     .form-group input,
     .form-group select,
     .form-group textarea {
       width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 8px;
       padding: 14px 18px;
       color: var(--white);
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-body);
       font-size: 16px;
       outline: none;
-      transition: border-color 0.45s;
+      transition: border-color 240ms var(--ease);
     }
+
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
     .form-group input:focus,
     .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold); }
-    .form-group select option { background: var(--green-dark); color: var(--white); }
-    .form-group textarea { min-height: 100px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
     .form-submit-btn {
       width: 100%;
       background: var(--gold);
@@ -1304,31 +1339,65 @@
       border: none;
       border-radius: 8px;
       padding: 18px;
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-body);
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
       margin-top: 8px;
-      transition: background 0.45s, transform 0.1s;
+      transition: background 240ms var(--ease), transform 120ms var(--ease);
     }
-    .form-submit-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
-    .form-note { color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; margin-top: 16px; }
+
+    .form-submit-btn:hover {
+      background: var(--gold-light);
+    }
+
+    .form-submit-btn:active {
+      transform: scale(0.98);
+    }
+
+    .form-note {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
+      text-align: center;
+      margin-top: 16px;
+    }
+
     @media (max-width: 640px) {
-      .form-row { grid-template-columns: 1fr; }
-      .apply-form-section { padding: 70px 24px; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .apply-form-section {
+        padding: 70px 24px;
+      }
+    }
+
+    /* ── REDUCE MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 120ms !important;
+        transition-property: opacity !important;
+        animation: none !important;
+      }
+      [data-reveal] {
+        transform: none !important;
+      }
     }
   </style>
   <meta name="google-site-verification" content="UFTzOvThxXrooTJbJ3vnP4NjM_zv688_DX7K0O1v3aQ" />
-  <meta name="description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork — not guesswork. Physician-supervised through Asher Med.">
+  <meta name="description"
+    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork — not guesswork. Physician-supervised through Asher Med.">
   <link rel="canonical" href="https://rvahealthpartner.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rvahealthpartner.com/">
   <meta property="og:title" content="RVA Health Partner — Body Recomposition &amp; Clinical Coaching, Richmond VA">
-  <meta property="og:description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR, and bloodwork. Physician-supervised clinical access through Asher Med.">
+  <meta property="og:description"
+    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR, and bloodwork. Physician-supervised clinical access through Asher Med.">
   <meta property="og:image" content="https://rvahealthpartner.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RVA Health Partner — Body Recomposition &amp; Clinical Coaching">
-  <meta name="twitter:description" content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
+  <meta name="twitter:description"
+    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1393,13 +1462,14 @@
   <div class="hero">
     <div class="hero-content">
       <span class="hero-tag">Richmond, VA &nbsp;·&nbsp; Private Coaching Practice</span>
-      <h1>Lose the fat. Build the muscle<br><em>Elite Strength Training, Precision Nutrition, and Medical Peptides</em><br>We're the Only Program in Richmond Uniting Fitness and Medicine.</h1>
+      <h1>GLP-1 Medications Help You Lose Weight.<br><em>Strength Training Determines Whether You Lose Fat — or
+          Muscle.</em><br>We're the Only Program in Richmond That Does Both.</h1>
       <p class="hero-sub">Every program starts with body composition scanning, resting metabolic rate
-        testing, and bloodwork. Your strength program, nutrition targets, and peptide therapy
-        get built from those numbers.
+        testing, and bloodwork. Your strength program and nutrition targets
+        get built from those numbers, then recalibrated every four weeks.
       </p>
       <p class="hero-sub" style="margin-top: 0; margin-bottom: 38px;">Whether medication is part of your picture or not,
-        the baseline is the same. The testing doesn't change..</p>
+        the baseline is the same. The testing doesn't change based on what you're managing.</p>
       <a href="#apply-form" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
       <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
     </div>
@@ -1415,15 +1485,15 @@
 
   <!-- ── PROOF BAR ── -->
   <div class="proof-bar">
-    <div class="proof-item"><span class="proof-icon">🏥</span><span class="proof-text">Physician-supervised through
+    <div class="proof-item"><span class="proof-text">Physician-supervised through
         Asher Med MSO</span></div>
-    <div class="proof-item"><span class="proof-icon">📊</span><span class="proof-text">Body Composition Scan + RMR +
+    <div class="proof-item"><span class="proof-text">Body Composition Scan + RMR +
         Bloodwork in every program</span></div>
-    <div class="proof-item"><span class="proof-icon">🏋️</span><span class="proof-text">Individualized programming — no
+    <div class="proof-item"><span class="proof-text">Individualized programming — no
         group classes</span></div>
-    <div class="proof-item"><span class="proof-icon">📍</span><span class="proof-text">Richmond, VA — in-person &amp;
+    <div class="proof-item"><span class="proof-text">Richmond, VA — in-person &amp;
         hybrid</span></div>
-    <div class="proof-item"><span class="proof-icon">⭐</span><span class="proof-text">Applications reviewed within 24
+    <div class="proof-item"><span class="proof-text">Applications reviewed within 24
         hours</span></div>
   </div>
 
@@ -1607,7 +1677,8 @@
             </div>
           </div>
           <div style="margin-top: 28px;">
-            <a href="#apply-form" class="btn-primary" style="display: block; text-align: center;">→ Apply for Foundation</a>
+            <a href="#apply-form" class="btn-primary" style="display: block; text-align: center;">→ Apply for
+              Foundation</a>
           </div>
         </div>
       </div>
@@ -1674,11 +1745,11 @@
       failing because they lack willpower. They're failing because nobody has ever built them a real solution.</p>
     <a href="#apply-form" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
     <div class="trust-row">
-      <span class="trust-item" style="color: rgba(255,255,255,0.7);">🏥 Physician-supervised through Asher Med</span>
-      <span class="trust-item" style="color: rgba(255,255,255,0.7);">📊 Built on Body Composition, RMR, and
+      <span class="trust-item" style="color: rgba(255,255,255,0.7);">Physician-supervised through Asher Med</span>
+      <span class="trust-item" style="color: rgba(255,255,255,0.7);">Built on Body Composition, RMR, and
         bloodwork</span>
-      <span class="trust-item" style="color: rgba(255,255,255,0.7);">📍 Richmond, VA — in-person &amp; hybrid</span>
-      <span class="trust-item" style="color: rgba(255,255,255,0.7);">🔒 Application reviewed within 24 hours</span>
+      <span class="trust-item" style="color: rgba(255,255,255,0.7);">Richmond, VA — in-person &amp; hybrid</span>
+      <span class="trust-item" style="color: rgba(255,255,255,0.7);">Application reviewed within 24 hours</span>
     </div>
   </div>
 
@@ -1757,11 +1828,11 @@
 
       <div class="not-list">
         <span class="not-label">What this is NOT:</span>
-        <span class="not-item">❌ A group class</span>
-        <span class="not-item">❌ A cookie-cutter meal plan</span>
-        <span class="not-item">❌ A prescription mill</span>
-        <span class="not-item">❌ A gym membership</span>
-        <span class="not-item">❌ A 30-day challenge with no follow-through</span>
+        <span class="not-item">× A group class</span>
+        <span class="not-item">× A cookie-cutter meal plan</span>
+        <span class="not-item">× A prescription mill</span>
+        <span class="not-item">× A gym membership</span>
+        <span class="not-item">× A 30-day challenge with no follow-through</span>
       </div>
     </div>
   </section>
@@ -2021,10 +2092,10 @@
       Session</a>
 
     <div class="trust-row" style="margin-top: 32px;">
-      <span class="trust-item" style="color: var(--text-muted);">🔒 Application reviewed within 24 hours</span>
-      <span class="trust-item" style="color: var(--text-muted);">🏥 Clinical care by Asher Med physicians</span>
-      <span class="trust-item" style="color: var(--text-muted);">📊 DEXA + RMR + Bloodwork from Day 1</span>
-      <span class="trust-item" style="color: var(--text-muted);">🚫 No long-term contract required to apply</span>
+      <span class="trust-item" style="color: var(--text-muted);">Application reviewed within 24 hours</span>
+      <span class="trust-item" style="color: var(--text-muted);">Clinical care by Asher Med physicians</span>
+      <span class="trust-item" style="color: var(--text-muted);">DEXA + RMR + Bloodwork from Day 1</span>
+      <span class="trust-item" style="color: var(--text-muted);">No long-term contract required to apply</span>
     </div>
   </div>
 
@@ -2035,7 +2106,9 @@
   <section class="apply-form-section" id="apply-form">
     <h2>Apply for Your Strategy Session</h2>
     <p class="form-sub">60 minutes. No obligation. Every application reviewed within 24 hours.</p>
-    <form class="apply-form" action="https://script.google.com/macros/s/AKfycbx_g7-f7r5b-P0zQp6VfyP1D49HBpiB_ZsjGPus3NLVNXUgu6u6E0voyZNDp7IjvRAlnQ/exec" method="POST" id="strategy-form">
+    <form class="apply-form"
+      action="https://script.google.com/macros/s/AKfycbx_g7-f7r5b-P0zQp6VfyP1D49HBpiB_ZsjGPus3NLVNXUgu6u6E0voyZNDp7IjvRAlnQ/exec"
+      method="POST" id="strategy-form">
       <div class="form-row">
         <div class="form-group">
           <label for="f-name">Full Name</label>
@@ -2072,7 +2145,8 @@
       </div>
       <div class="form-group">
         <label for="f-context">Anything we should know going in? (optional)</label>
-        <textarea id="f-context" name="context" placeholder="Training history, current medications, specific concerns..."></textarea>
+        <textarea id="f-context" name="context"
+          placeholder="Training history, current medications, specific concerns..."></textarea>
       </div>
       <button type="submit" class="form-submit-btn">→ Submit Application</button>
       <p class="form-note">Applications reviewed within 24 hours. No spam, ever.</p>
@@ -2092,11 +2166,11 @@
   <script>
 
     // ── CUSTOM CURSOR ──
-    (function() {
+    (function () {
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        const dot  = document.createElement('div');
+        const dot = document.createElement('div');
         const ring = document.createElement('div');
-        dot.className  = 'cursor-dot';
+        dot.className = 'cursor-dot';
         ring.className = 'cursor-ring';
         document.body.appendChild(dot);
         document.body.appendChild(ring);
@@ -2114,7 +2188,7 @@
         });
 
         document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
-        document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-clicking'));
+        document.addEventListener('mouseup', () => document.body.classList.remove('cursor-clicking'));
 
         // Link/button hover state
         document.querySelectorAll('a, button, .btn-primary, .btn-gold, .faq-q, .package-card, .nav-cta, [role="button"]')
@@ -2133,12 +2207,12 @@
         // Animate: dot snaps, ring lerps
         const LERP = 0.09;
         function tick() {
-          dot.style.left  = mx + 'px';
-          dot.style.top   = my + 'px';
+          dot.style.left = mx + 'px';
+          dot.style.top = my + 'px';
           rx += (mx - rx) * LERP;
           ry += (my - ry) * LERP;
           ring.style.left = rx + 'px';
-          ring.style.top  = ry + 'px';
+          ring.style.top = ry + 'px';
           requestAnimationFrame(tick);
         }
         tick();
@@ -2190,16 +2264,6 @@
       });
     });
 
-    // ── HERO PARALLAX ──
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-      lenis.on('scroll', ({ scroll }) => {
-        const limit = document.querySelector('.hero')?.offsetHeight || 700;
-        if (scroll < limit) {
-          heroVisual.style.transform = `translateY(${scroll * 0.16}px)`;
-        }
-      });
-    }
 
     // ── FAQ TOGGLE ──
     function toggleFaq(btn) {
@@ -2227,7 +2291,7 @@
     // ── STRATEGY SESSION FORM ──
     const strategyForm = document.getElementById('strategy-form');
     if (strategyForm) {
-      strategyForm.addEventListener('submit', async function(e) {
+      strategyForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         const btn = strategyForm.querySelector('.form-submit-btn');
         const original = btn.textContent;
@@ -2235,13 +2299,13 @@
         btn.disabled = true;
 
         const data = new URLSearchParams();
-        data.append('name',         strategyForm.querySelector('[name="name"]').value);
-        data.append('email',        strategyForm.querySelector('[name="email"]').value);
-        data.append('phone',        strategyForm.querySelector('[name="phone"]').value);
-        data.append('glp1',         strategyForm.querySelector('[name="glp1_status"]').value);
+        data.append('name', strategyForm.querySelector('[name="name"]').value);
+        data.append('email', strategyForm.querySelector('[name="email"]').value);
+        data.append('phone', strategyForm.querySelector('[name="phone"]').value);
+        data.append('glp1', strategyForm.querySelector('[name="glp1_status"]').value);
         data.append('primary_goal', strategyForm.querySelector('[name="primary_goal"]').value);
         const ctx = strategyForm.querySelector('[name="context"]');
-        data.append('context',      ctx ? ctx.value : '');
+        data.append('context', ctx ? ctx.value : '');
         data.append('source', 'Website');
 
         try {
