@@ -408,6 +408,22 @@
       color: var(--green-dark);
     }
 
+    .step-image {
+      margin: 20px 0;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      background: var(--cream-dark);
+    }
+
+    .step-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.1) brightness(0.95);
+    }
+
     .step-card p {
       font-size: 15.5px;
       color: var(--text-muted);
@@ -1564,6 +1580,9 @@
       <div class="step-card">
         <div class="step-num">01</div>
         <h3>Assess Your Actual Baseline</h3>
+        <div class="step-image">
+          <img src="assets/images/baseline-scan.png" loading="lazy" alt="Sleek metabolic testing setup">
+        </div>
         <p>Before we build anything, we measure everything. Body composition scan. Resting metabolic rate. Bloodwork
           panel. Fitness screening. <br><br>You'll know exactly how much lean mass you're carrying,
           where your metabolism sits, and what your body needs before we write a single line of
@@ -1574,6 +1593,9 @@
       <div class="step-card">
         <div class="step-num">02</div>
         <h3>Build Your Individualized System</h3>
+        <div class="step-image">
+          <img src="assets/images/coaching-system.png" loading="lazy" alt="Coach and client discussing training system">
+        </div>
         <p>Based on your results, we design your strength program, nutrition targets, and — for Package 1 clients —
           initiate your clinical evaluation through Asher Med. Their licensed physicians independently assess
           eligibility for GLP-1/GIP therapy, peptides, or other medical support.<br><br>Already working with an
@@ -1586,6 +1608,9 @@
       <div class="step-card">
         <div class="step-num">03</div>
         <h3>Execute, Adjust, Recompose</h3>
+        <div class="step-image">
+          <img src="assets/images/execution-lift.png" loading="lazy" alt="Athlete executing a heavy bicep curl">
+        </div>
         <p>Weekly 50 minute training sessions at private studio in near West End. Program updates every 4 weeks based on
           how your body is
           actually responding. Direct coach access throughout.<br><br>At 12 weeks, we rescan and retest — so you see
