@@ -285,30 +285,40 @@
     /* ── PROOF BAR ── */
     .proof-bar {
       background: var(--green);
-      padding: 22px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      padding: 18px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
     }
 
-    .proof-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
+    .proof-track {
+      display: inline-flex;
+      animation: proof-scroll 45s linear infinite;
+      will-change: transform;
     }
 
-    .proof-icon {
-      font-size: 18px;
-      opacity: 0.85;
+    .proof-bar:hover .proof-track {
+      animation-play-state: paused;
+    }
+
+    .proof-set {
+      display: inline-flex;
+      align-items: center;
     }
 
     .proof-text {
+      color: white;
       font-size: 13.5px;
+      font-family: var(--font-body);
       font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       opacity: 0.9;
+    }
+
+    @keyframes proof-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ── SECTIONS ── */
@@ -1476,18 +1486,20 @@
     </div>
   </div>
 
-  <!-- ── PROOF BAR ── -->
+  <!-- ── PROOF BAR (TICKER) ── -->
   <div class="proof-bar">
-    <div class="proof-item"><span class="proof-text">Physician-supervised through
-        Asher Med MSO</span></div>
-    <div class="proof-item"><span class="proof-text">Body Composition Scan + RMR +
-        Bloodwork in every program</span></div>
-    <div class="proof-item"><span class="proof-text">Individualized programming — no
-        group classes</span></div>
-    <div class="proof-item"><span class="proof-text">Richmond, VA — in-person &amp;
-        hybrid</span></div>
-    <div class="proof-item"><span class="proof-text">Applications reviewed within 24
-        hours</span></div>
+    <div class="proof-track">
+      <!-- Set 1 -->
+      <div class="proof-set">
+        <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+      <!-- Set 2 -->
+      <div class="proof-set">
+        <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </div>
+    </div>
   </div>
 
   <!-- ── SECTION 2: HOW IT WORKS ── -->
