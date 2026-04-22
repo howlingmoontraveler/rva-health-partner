@@ -149,30 +149,16 @@
     }
 
     .hero-tag {
-      display: inline-flex;
-      max-width: 380px;
-      width: 100%;
+      display: inline-block;
       background: var(--green);
-      border-radius: 4px;
-      margin-bottom: 28px;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-    }
-
-    .hero-tag-track {
-      display: inline-flex;
-      animation: proof-scroll 18s linear infinite;
-      will-change: transform;
-    }
-
-    .hero-tag-text {
       color: white;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      padding: 6px 0;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 28px;
     }
 
     .hero h1 {
@@ -1506,17 +1492,7 @@
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-content">
-      <div class="hero-tag">
-        <div class="hero-tag-track">
-          <!-- Text repeated to allow for seamless native scroll (-50% transform on 2 elements) -->
-          <span class="hero-tag-text">Look Better &nbsp;·&nbsp; Recover Faster &nbsp;·&nbsp; Feel Younger
-            &nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;&nbsp; Look Better &nbsp;·&nbsp; Recover Faster &nbsp;·&nbsp;
-            Feel Younger &nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <span class="hero-tag-text">Look Better &nbsp;·&nbsp; Recover Faster &nbsp;·&nbsp; Feel Younger
-            &nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;&nbsp; Look Better &nbsp;·&nbsp; Recover Faster &nbsp;·&nbsp;
-            Feel Younger &nbsp;&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        </div>
-      </div>
+      <span class="hero-tag">Look Better &nbsp;·&nbsp; Recover Faster &nbsp;·&nbsp; Feel Younger</span>
       <h1><em>Elite Strength Training, Precision Nutrition, and Medical
           Peptides</em><br>The Only Program in Richmond Uniting Fitness and Medicine.</h1>
       <a href="#apply-form" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
