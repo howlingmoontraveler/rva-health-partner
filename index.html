@@ -970,11 +970,12 @@
     }
 
     .package-card {
-      transition: box-shadow 240ms var(--ease);
+      transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
     }
 
     .package-card:hover {
       box-shadow: var(--shadow-3);
+      transform: translateY(-8px);
     }
 
     .package-feature {
@@ -1649,6 +1650,7 @@
       <!-- PACKAGE 1 -->
       <div class="package-card">
         <div class="package-header">
+          <div class="package-badge" style="opacity: 0; user-select: none;" aria-hidden="true">Alignment</div>
           <h3>Package 2 — Foundation</h3>
           <p>Strength + Nutrition + Data. Built for serious transformation without medication.</p>
           <p style="font-size: 28px; font-weight: 800; margin-top: 12px;">Starting at $799<span
