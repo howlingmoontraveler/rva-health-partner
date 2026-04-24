@@ -163,17 +163,38 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 44px;
+      font-size: 48px;
       font-weight: 600;
-      line-height: 1.24;
-      letter-spacing: -0.01em;
-      margin-bottom: 32px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
       color: var(--text);
     }
 
     .hero h1 em {
       color: var(--green);
       font-style: normal;
+    }
+
+    .hero-pillars {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .hero-pillars .pillar-sep {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
     }
 
     .hero-sub {
@@ -1493,7 +1514,14 @@
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-content">
-      <h1><em>Build a body that raises the standard.</em><br>Elite strength training + Precision Nutrition + Medical Peptides.</h1>
+      <h1><em>Build a body that raises the standard.</em></h1>
+      <div class="hero-pillars">
+        <span>Elite Strength Training</span>
+        <span class="pillar-sep"></span>
+        <span>Precision Nutrition</span>
+        <span class="pillar-sep"></span>
+        <span>Medical Peptides</span>
+      </div>
       <p class="hero-sub">Our mission is to unite high-performance fitness with clinical medicine.</p>
       <a href="#apply-form" class="btn-primary" id="apply">→ Apply for Your Strategy Session</a>
       <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
