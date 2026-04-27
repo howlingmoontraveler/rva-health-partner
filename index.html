@@ -2472,9 +2472,13 @@
         e.preventDefault();
         e.stopPropagation();
         
+        alert("If you see this, your cache is cleared. Opening modal...");
+        
         if (applyModal) {
           applyModal.classList.add('active');
           document.body.style.overflow = 'hidden';
+        } else {
+          alert("Error: applyModal not found in DOM");
         }
       });
     });
