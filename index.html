@@ -1304,13 +1304,15 @@
           justify-content: center;
           align-items: center;
           opacity: 0;
+          visibility: hidden;
           pointer-events: none;
-          transition: opacity 300ms var(--ease);
+          transition: opacity 300ms ease, visibility 300ms ease;
           padding: 20px;
         }
 
         .modal-overlay.active {
           opacity: 1;
+          visibility: visible;
           pointer-events: auto;
         }
 
@@ -1323,7 +1325,7 @@
           width: 100%;
           position: relative;
           transform: translateY(20px);
-          transition: transform 300ms var(--ease);
+          transition: transform 300ms ease;
           max-height: 90vh;
           overflow-y: auto;
         }
@@ -2411,7 +2413,10 @@
     // ── SMOOTH ANCHOR SCROLL via Lenis ──
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
-        const target = document.querySelector(link.getAttribute('href'));
+        const href = link.getAttribute('href');
+        if (href === '#apply-form') return;
+
+        const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
           lenis.scrollTo(target, { offset: -80, duration: 1.6 });
