@@ -1293,24 +1293,75 @@
           transition-delay: 0.58s;
         }
 
-        .apply-form-section {
-          background: var(--green-dark);
-          padding: 80px 60px;
-          text-align: center;
+        .modal-overlay {
+          position: fixed;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(18, 20, 18, 0.85);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
+          z-index: 99999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 300ms var(--ease);
+          padding: 20px;
         }
 
-        .apply-form-section h2 {
+        .modal-overlay.active {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .modal-container {
+          background: var(--green-dark);
+          padding: 64px 60px;
+          border-radius: 12px;
+          text-align: center;
+          max-width: 720px;
+          width: 100%;
+          position: relative;
+          transform: translateY(20px);
+          transition: transform 300ms var(--ease);
+          max-height: 90vh;
+          overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-container {
+          transform: translateY(0);
+        }
+
+        .modal-close {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          background: none;
+          border: none;
+          color: rgba(255,255,255,0.5);
+          font-size: 28px;
+          cursor: pointer;
+          line-height: 1;
+          padding: 8px;
+          transition: color 200ms ease;
+        }
+
+        .modal-close:hover {
+          color: white;
+        }
+
+        .modal-container h2 {
           color: var(--white);
           font-family: var(--font-display);
-          font-size: 36px;
+          font-size: 32px;
           font-weight: 600;
           margin-bottom: 12px;
         }
 
-        .apply-form-section .form-sub {
+        .modal-container .form-sub {
           color: rgba(255, 255, 255, 0.7);
-          font-size: 18px;
-          margin-bottom: 48px;
+          font-size: 16px;
+          margin-bottom: 40px;
           max-width: 560px;
           margin-left: auto;
           margin-right: auto;
@@ -1414,8 +1465,8 @@
             grid-template-columns: 1fr;
           }
 
-          .apply-form-section {
-            padding: 56px 24px;
+          .modal-container {
+            padding: 48px 24px;
           }
         }
 
@@ -2183,9 +2234,11 @@
   <!-- ── APPLY FORM ── -->
   <!-- SETUP: Replace YOUR_FORM_ID with your Formspree form ID.
        Free setup at formspree.io — create account, New Form, copy the ID (looks like xeojpnwa). -->
-  <section class="apply-form-section" id="apply-form">
-    <h2>Apply for Your Strategy Session</h2>
-    <p class="form-sub">60 minutes. No obligation. Every application reviewed within 24 hours.</p>
+  <div class="modal-overlay" id="apply-modal">
+    <div class="modal-container">
+      <button class="modal-close" id="close-modal" aria-label="Close modal">&times;</button>
+      <h2>Apply for Your Strategy Session</h2>
+      <p class="form-sub">60 minutes. No obligation. Every application reviewed within 24 hours.</p>
     <form class="apply-form"
       action="https://script.google.com/macros/s/AKfycbx_g7-f7r5b-P0zQp6VfyP1D49HBpiB_ZsjGPus3NLVNXUgu6u6E0voyZNDp7IjvRAlnQ/exec"
       method="POST" id="strategy-form">
@@ -2231,7 +2284,8 @@
       <button type="submit" class="form-submit-btn">→ Submit Application</button>
       <p class="form-note">Applications reviewed within 24 hours. No spam, ever.</p>
     </form>
-  </section>
+    </div>
+  </div>
 
   <!-- ── FOOTER ── -->
   <footer>
@@ -2332,8 +2386,7 @@
       ['.faq-item', true],
       ['.authority-card', true],
       ['.founding-block', false],
-      ['.final-copy', false],
-      ['.apply-form-section', false],
+      ['.final-copy', false]
     ];
 
     revealGroups.forEach(([sel, stagger]) => {
@@ -2402,6 +2455,39 @@
         }
       });
     }
+
+    // ── MODAL LOGIC ──
+    const applyModal = document.getElementById('apply-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    
+    // Open modal on click of any #apply-form links
+    document.querySelectorAll('a[href="#apply-form"]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        // Pause Lenis smooth scrolling if applicable
+        if (typeof lenis !== 'undefined') lenis.stop();
+        applyModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // Close modal fns
+    function closeModal() {
+      applyModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (typeof lenis !== 'undefined') lenis.start();
+    }
+
+    if(closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close on background click
+    applyModal.addEventListener('click', e => {
+      if(e.target === applyModal) {
+        closeModal();
+      }
+    });
   </script>
 
 </body>
