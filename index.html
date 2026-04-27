@@ -1304,15 +1304,15 @@
           justify-content: center;
           align-items: center;
           opacity: 0;
-          visibility: hidden;
           pointer-events: none;
-          transition: opacity 300ms ease, visibility 300ms ease;
+          transition: opacity 300ms ease;
           padding: 20px;
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
         }
 
         .modal-overlay.active {
           opacity: 1;
-          visibility: visible;
           pointer-events: auto;
         }
 
@@ -2472,13 +2472,9 @@
         e.preventDefault();
         e.stopPropagation();
         
-        alert("If you see this, your cache is cleared. Opening modal...");
-        
         if (applyModal) {
           applyModal.classList.add('active');
           document.body.style.overflow = 'hidden';
-        } else {
-          alert("Error: applyModal not found in DOM");
         }
       });
     });
