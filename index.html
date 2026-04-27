@@ -1295,23 +1295,20 @@
 
         .modal-overlay {
           position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
+          top: -120vh; /* Off-screen entirely */
+          left: 0; right: 0; 
+          height: 100vh;
           background: rgba(18, 20, 18, 0.95);
-          z-index: 99999;
-          display: none;
+          z-index: 999999;
+          display: flex;
           justify-content: center;
           align-items: center;
           padding: 20px;
+          transition: top 400ms var(--ease);
         }
 
         .modal-overlay.active {
-          display: flex;
-          animation: modalFadeIn 300ms ease forwards;
-        }
-
-        @keyframes modalFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          top: 0;
         }
 
         .modal-container {
@@ -2473,6 +2470,7 @@
         if (applyModal) {
           applyModal.classList.add('active');
           document.body.style.overflow = 'hidden';
+          if (typeof lenis !== 'undefined') lenis.stop();
         }
       });
     });
@@ -2483,6 +2481,7 @@
         applyModal.classList.remove('active');
       }
       document.body.style.overflow = '';
+      if (typeof lenis !== 'undefined') lenis.start();
     }
 
     if(closeModalBtn) {
