@@ -2414,7 +2414,10 @@
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         const href = link.getAttribute('href');
-        if (href === '#apply-form') return;
+        if (href === '#apply-form') {
+          e.preventDefault();
+          return;
+        }
 
         const target = document.querySelector(href);
         if (target) {
@@ -2467,18 +2470,21 @@
     document.querySelectorAll('a[href="#apply-form"]').forEach(btn => {
       btn.addEventListener('click', e => {
         e.preventDefault();
-        // Pause Lenis smooth scrolling if applicable
-        if (typeof lenis !== 'undefined') lenis.stop();
-        applyModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        e.stopPropagation();
+        
+        if (applyModal) {
+          applyModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
       });
     });
 
     // Close modal fns
     function closeModal() {
-      applyModal.classList.remove('active');
+      if (applyModal) {
+        applyModal.classList.remove('active');
+      }
       document.body.style.overflow = '';
-      if (typeof lenis !== 'undefined') lenis.start();
     }
 
     if(closeModalBtn) {
@@ -2486,11 +2492,13 @@
     }
     
     // Close on background click
-    applyModal.addEventListener('click', e => {
-      if(e.target === applyModal) {
-        closeModal();
-      }
-    });
+    if (applyModal) {
+      applyModal.addEventListener('click', e => {
+        if(e.target === applyModal) {
+          closeModal();
+        }
+      });
+    }
   </script>
 
 </body>
