@@ -736,26 +736,70 @@
 
     .founding-block {
       background: white;
-      border-radius: 8px;
-      padding: 52px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-1);
-      margin-bottom: 40px;
+      border-radius: 12px;
+      padding: 60px;
+      border: 1px solid var(--gold);
+      box-shadow: var(--shadow-3);
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founding-block::before {
+      content: 'FOUNDING OPPORTUNITY';
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: var(--gold);
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 8px 40px;
+      transform: rotate(45deg);
+      letter-spacing: 1px;
     }
 
     .founding-block h3 {
       font-family: var(--font-display);
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
+      color: var(--green-dark);
     }
 
-    .founding-block p {
-      font-size: 17px;
-      line-height: 1.72;
+    .founding-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .founding-benefit {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .founding-benefit .icon {
+      color: var(--gold);
+      font-size: 20px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .founding-benefit h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .founding-benefit p {
+      font-size: 14.5px;
       color: var(--text-muted);
-      margin-bottom: 28px;
-      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 0;
     }
 
     .authority-block {
@@ -1899,18 +1943,41 @@
     <h2 style="margin-bottom: 40px;">LIMITED AVAILABILITY — BY APPLICATION ONLY</h2>
 
     <div class="founding-block">
-      <h3>RVA Health Partner takes a small number of new clients each month. There's no
-        waiting list. You apply, we review within 24 hours, and if it's the right fit,
-        we schedule your strategy session.</h3>
-      <p>Clients who apply during the launch period lock in reduced program investment
-        for the duration of their initial program. After this cohort fills, pricing moves
-        to standard rates.
+      <h3>The Founding Case Study Cohort</h3>
+      <p style="font-size: 18px; margin-bottom: 40px; color: var(--text);">We are looking for motivated individuals in Richmond to prove the power of this integrated system. As a founding client, you aren't just a number—you're the proof.</p>
 
-        This isn't a prototype. The methodology, testing infrastructure, and clinical
-        partnership are fully operational. What early clients get is reduced pricing,
-        direct access to John, and their results documented as the first case studies
-        for the program.</p>
-      <a href="#apply-form" class="btn-primary">→ Apply Now — Limited Spots</a>
+      <div class="founding-grid">
+        <div class="founding-benefit">
+          <div class="icon">01</div>
+          <div>
+            <h4>Locked-In Launch Pricing</h4>
+            <p>Secure our initial program investment rates for the life of your membership. When prices move to standard rates, yours stays fixed.</p>
+          </div>
+        </div>
+        <div class="founding-benefit">
+          <div class="icon">02</div>
+          <div>
+            <h4>Direct Access to John</h4>
+            <p>Work directly with the founder on your programming, nutrition, and behavior architecture without filters or hand-offs.</p>
+          </div>
+        </div>
+        <div class="founding-benefit">
+          <div class="icon">03</div>
+          <div>
+            <h4>Case Study Documentation</h4>
+            <p>Get professional-grade tracking of your body composition, metabolic health, and performance to document your transformation.</p>
+          </div>
+        </div>
+        <div class="founding-benefit">
+          <div class="icon">04</div>
+          <div>
+            <h4>Immediate Availability</h4>
+            <p>Skip the future waiting list and start your transformation within 7 days of your application approval.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#apply-form" class="btn-primary" style="margin-top: 20px;">→ Apply for the Founding Cohort</a>
     </div>
 
     <div class="authority-block">
