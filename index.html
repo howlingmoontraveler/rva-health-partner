@@ -728,6 +728,129 @@
       font-weight: 500;
     }
 
+    /* ── DID YOU KNOW CALLOUT ── */
+    .did-you-know {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 40px;
+      background: var(--green-faint);
+      border-left: 4px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      position: relative;
+    }
+
+    .did-you-know-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .did-you-know-label .dyk-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .did-you-know p {
+      font-size: 16px;
+      line-height: 1.72;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .did-you-know strong {
+      color: var(--green-dark);
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who-for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 48px;
+      max-width: 860px;
+    }
+
+    .who-for-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .who-for-item .wf-marker {
+      color: var(--green);
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── WHY RVAHP ── */
+    .why-rvahp {
+      background: var(--green-dark);
+      padding: 72px 80px;
+      color: white;
+    }
+
+    .why-rvahp h2 {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .why-rvahp .section-sub {
+      font-size: 18px;
+      opacity: 0.78;
+      max-width: 600px;
+      line-height: 1.72;
+      margin-bottom: 48px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 48px;
+      margin-bottom: 48px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .why-item .why-check {
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .why-item p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.92;
+    }
+
+    .why-item strong {
+      color: var(--gold-light);
+    }
+
     /* ── PROOF / SOCIAL ── */
     .proof-section {
       background: var(--cream);
@@ -1626,6 +1749,17 @@
     </div>
   </div>
 
+  <!-- ── DID YOU KNOW? ── -->
+  <section style="padding: 56px 80px;">
+    <div class="did-you-know">
+      <div class="did-you-know-label">
+        <span class="dyk-icon">💡</span>
+        Did You Know?
+      </div>
+      <p>Without a structured resistance training program, <strong>25–40% of total weight lost on GLP-1 medications comes from lean muscle — not fat.</strong> Every RVA Health Partner program starts with baseline body composition testing so we know exactly what's changing, and strength training is built into every protocol to protect the muscle you can't afford to lose.</p>
+    </div>
+  </section>
+
   <!-- ── SECTION 2: HOW IT WORKS ── -->
   <section id="how-it-works">
     <h2 style="margin-bottom: 40px;">How It Works</h2>
@@ -1669,6 +1803,39 @@
           exactly what changed in fat mass, lean mass, and metabolic markers. Not just the scale.<br><br>Most clients
           continue past the initial 12 weeks. At the rescan, we review the data and plan the next phase. Transformation
           doesn't have an end date.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO THIS IS FOR ── -->
+  <section class="alt">
+    <span class="section-label">Ideal Clients</span>
+    <h2 style="margin-bottom: 40px;">Who This Program Is Built For</h2>
+
+    <div class="who-for-grid">
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>Adults on GLP-1 medication who want to <strong>protect muscle</strong> while losing fat</span>
+      </div>
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>Anyone 35+ who's tired of generic fitness plans that <strong>ignore their bloodwork</strong></span>
+      </div>
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>People who've lost weight before but gained it all back — and want to <strong>understand why</strong></span>
+      </div>
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>Active adults dealing with <strong>metabolic slowdown</strong>, hormonal shifts, or body composition frustration</span>
+      </div>
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>Anyone who wants <strong>data-driven coaching</strong>, not guesswork</span>
+      </div>
+      <div class="who-for-item">
+        <span class="wf-marker">●</span>
+        <span>People considering peptide therapy who want it <strong>integrated with a real training program</strong></span>
       </div>
     </div>
   </section>
@@ -1807,17 +1974,42 @@
     </div>
   </section>
 
-  <!-- ── MID CTA ── -->
-  <div class="mid-cta">
-    <h2>Start Measuring.</h2>
-    <p>Most people spinning their wheels on weight loss, inconsistent training, and generic nutrition plans aren't
-      failing because they lack willpower. They're failing because nobody has ever built them a transparent, realistic
-      solution grounded in evidence.</p>
-    <p style="font-size: 18px; opacity: 0.78; max-width: 600px; margin: 0 auto 40px; line-height: 1.72;">Medication may
-      start progress, but habit architecture maintains it. Coaching ensures you develop the routines and behaviors you
-      can carry forward long after the initial phases of weight loss.</p>
-    <a href="#apply-form" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
-    <p class="cta-bonus" style="color: white; opacity: 0.9;">✨ Includes a free 3D body scan ($59 value)</p>
+  <!-- ── WHY RVA HEALTH PARTNER ── -->
+  <div class="why-rvahp">
+    <h2>Why RVA Health Partner</h2>
+    <p class="section-sub">This isn't a gym membership with a lab coat. It's an integrated system where every decision is backed by your data.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>Every program starts with a 3D body scan, RMR test, and bloodwork</strong> — not guesswork</p>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>Physician-supervised clinical access</strong> through Asher Med — not a med spa</p>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>Strength programming written for YOUR body</strong>, goals, and training history</p>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>Nutrition targets built from your actual metabolic rate</strong>, adjusted every 4 weeks</p>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>Body composition tracked over time</strong> — so you see fat lost AND muscle gained</p>
+      </div>
+      <div class="why-item">
+        <span class="why-check">✓</span>
+        <p><strong>One coach, one system, full accountability</strong> — not a rotating roster of trainers</p>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="#apply-form" class="btn-primary btn-gold">→ Apply for Your Strategy Session</a>
+      <p class="cta-bonus" style="color: white; opacity: 0.9;">✨ Includes a free 3D body scan ($59 value)</p>
+    </div>
   </div>
 
   <!-- ── PROOF BAR (TICKER) ── -->
