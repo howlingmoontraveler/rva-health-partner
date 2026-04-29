@@ -1438,6 +1438,14 @@
           margin-bottom: 20px;
         }
 
+        .form-group-hint {
+          display: block;
+          margin-top: -2px;
+          margin-bottom: 12px;
+          font-size: 13px;
+          color: var(--text-muted);
+        }
+
         .form-group label {
           display: block;
           color: var(--text);
@@ -1492,6 +1500,68 @@
           gap: 16px;
         }
 
+        .checkbox-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+
+        .checkbox-card {
+          position: relative;
+        }
+
+        .checkbox-card input {
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .checkbox-card label {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          min-height: 58px;
+          padding: 14px 16px;
+          border: 1px solid rgba(26, 26, 26, 0.12);
+          border-radius: 8px;
+          background: #fbfaf7;
+          color: var(--text);
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0;
+          text-transform: none;
+          margin-bottom: 0;
+          cursor: pointer;
+          transition: border-color 240ms var(--ease), box-shadow 240ms var(--ease), background 240ms var(--ease), transform 120ms var(--ease);
+        }
+
+        .checkbox-indicator {
+          width: 18px;
+          height: 18px;
+          border-radius: 4px;
+          border: 1.5px solid rgba(26, 26, 26, 0.24);
+          background: var(--white);
+          flex-shrink: 0;
+          transition: background 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+        }
+
+        .checkbox-card input:checked + label {
+          border-color: rgba(163, 126, 44, 0.55);
+          background: #fffdf7;
+          box-shadow: 0 0 0 4px rgba(163, 126, 44, 0.08);
+        }
+
+        .checkbox-card input:checked + label .checkbox-indicator {
+          background: var(--gold);
+          border-color: var(--gold);
+          box-shadow: inset 0 0 0 4px var(--white);
+        }
+
+        .checkbox-card input:focus-visible + label {
+          border-color: var(--gold);
+          box-shadow: 0 0 0 4px rgba(163, 126, 44, 0.12);
+        }
+
         .form-submit-btn {
           width: 100%;
           background: var(--gold);
@@ -1529,6 +1599,10 @@
             grid-template-columns: 1fr;
           }
 
+          .checkbox-grid {
+            grid-template-columns: 1fr;
+          }
+
           .apply-form-section {
             padding: 48px 20px 56px;
           }
@@ -1552,25 +1626,25 @@
   </style>
   <meta name="google-site-verification" content="UFTzOvThxXrooTJbJ3vnP4NjM_zv688_DX7K0O1v3aQ" />
   <meta name="description"
-    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork. Physician-supervised through Asher Med.">
+    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Med.">
   <link rel="canonical" href="https://rvahealthpartner.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rvahealthpartner.com/">
   <meta property="og:title"
     content="RVA Health Partner — Body Recomposition &amp; Elite one-on-one strength training, Richmond VA">
   <meta property="og:description"
-    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork. Physician-supervised through Asher Med.">
+    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Med.">
   <meta property="og:image" content="https://rvahealthpartner.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RVA Health Partner — Body Recomposition &amp; Elite one-on-one strength training">
   <meta name="twitter:description"
-    content="Strength coaching and GLP-1 support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
+    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "RVA Health Partner",
-    "description": "Strength coaching and clinical health programs in Richmond, VA. Body composition scanning, RMR testing, precision nutrition, and physician-supervised GLP-1 support through Asher Med.",
+    "description": "Strength coaching and clinical health programs in Richmond, VA. Body composition scanning, RMR testing, precision nutrition, and physician-directed peptide support through Asher Med.",
     "url": "https://rvahealthpartner.com",
     "email": "betterforyall@gmail.com",
     "address": {
@@ -1639,7 +1713,7 @@
         <span class="pillar-sep"></span>
         <span>Medical Peptides</span>
       </div>
-      <p class="hero-sub">Lose fat, build muscle, and optimize your health with Richmond’s only program combining elite strength training and physician-guided clinical support.</p>
+      <p class="hero-sub">Lose fat, build muscle, and optimize your health with Richmond’s only program combining elite strength training, advanced testing, and physician-guided peptide support.</p>
       <a href="#apply-form" class="btn-primary" id="apply">Book Your Strategy Session</a>
       <p class="cta-bonus">Includes a complimentary 3D body composition scan.</p>
       <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
@@ -1700,7 +1774,7 @@
       </div>
       <div class="who-for-item">
         <span class="wf-marker">●</span>
-        <span>Anyone seeking medically supervised weight management</span>
+        <span>Anyone seeking medically supervised weight management or peptide support</span>
       </div>
       <div class="who-for-item">
         <span class="wf-marker">●</span>
@@ -1725,7 +1799,7 @@
   <section style="padding: 48px 72px;">
     <div class="did-you-know">
       <div class="did-you-know-label">Clinical context</div>
-      <p>Without a structured resistance training program, <strong>25–40% of total weight lost on GLP-1 medications comes from lean muscle — not fat.</strong> Every RVA Health Partner program starts with baseline body composition testing so we know exactly what's changing, and strength training is built into every protocol to protect the muscle you can't afford to lose.</p>
+      <p>Clinical support here is broader than one medication category. <strong>GLP-1s are one tool, not the entire model.</strong> Every RVA Health Partner program starts with baseline body composition testing, bloodwork, and strength programming so any physician-directed peptide or medication plan sits inside a system that measures what is actually changing.</p>
     </div>
   </section>
 
@@ -1755,9 +1829,11 @@
         </div>
         <p>Based on your results, we design your strength program, nutrition targets, and — for Package 1 clients —
           initiate your clinical evaluation through Asher Med. Their licensed physicians independently assess
-          eligibility for GLP-1/GIP therapy, peptides, or other medical support.<br><br>Already working with an
-          endocrinologist, cardiologist, or PCP? Bring the records. Asher Med can coordinate alongside your existing
-          have to switch providers to get clinical oversight integrated with your training.</p>
+          eligibility for GLP-1/GIP therapy and other peptide-based support, including protocols for recovery,
+          metabolic health, performance, and body-composition goals when clinically appropriate.<br><br>Already working
+          with an endocrinologist, cardiologist, or PCP? Bring the records. Asher Med can coordinate alongside your
+          existing providers, so you do not have to switch care to get clinical oversight integrated with your
+          training.</p>
       </div>
       <div class="step-card">
         <div class="step-num">03</div>
@@ -1786,7 +1862,7 @@
         <div class="package-header">
           <div class="package-badge">Most Complete</div>
           <h3>Package 1 — Accelerated</h3>
-          <p>Everything in Foundation, plus physician-supervised clinical support through Asher Med.</p>
+          <p>Everything in Foundation, plus physician-supervised peptide and medication support through Asher Med.</p>
           <p style="font-size: 28px; font-weight: 800; margin-top: 12px;">Starting at $999<span
               style="font-size: 15px; font-weight: 500; opacity: 0.7;">/month</span></p>
         </div>
@@ -1810,6 +1886,13 @@
             <div>
               <div class="feature-name">GLP-1 / GIP Medication Access</div>
               <div class="feature-desc">Semaglutide or tirzepatide, if prescribed by physician</div>
+            </div>
+          </div>
+          <div class="package-feature">
+            <span class="check">✓</span>
+            <div>
+              <div class="feature-name">Expanded Peptide Protocols</div>
+              <div class="feature-desc">Physician-directed options may include NAD+, sermorelin, MOTS-c, BPC-157 / TB-500, GHK-Cu, and other peptide support when clinically appropriate</div>
             </div>
           </div>
           <div class="package-feature">
@@ -1920,7 +2003,7 @@
       </div>
       <div class="why-item">
         <span class="why-check">✓</span>
-        <p><strong>Physician-supervised clinical access</strong> through Asher Med — not a med spa</p>
+        <p><strong>Physician-supervised peptide and medication access</strong> through Asher Med — not a med spa</p>
       </div>
       <div class="why-item">
         <span class="why-check">✓</span>
@@ -2008,7 +2091,7 @@
           </li>
           <li>
             <div class="step-marker">4</div>
-            <div><strong>Package 1 only:</strong> Asher Med clinical intake initiated within the first week.</div>
+            <div><strong>Package 1 only:</strong> Asher Med clinical intake initiated within the first week for medication and peptide review.</div>
           </li>
         </ul>
       </div>
@@ -2084,7 +2167,7 @@
       <div class="authority-card">
         <h4>Clinical Partner: Asher Med</h4>
         <p>Asher Med is a Management Services Organization (MSO) providing physician-supervised telehealth clinical
-          services. All medical evaluations, prescriptions, and clinical oversight in Package 1 are delivered
+          services. All medical evaluations, prescriptions, peptide protocols, and clinical oversight in Package 1 are delivered
           independently by Asher Med's licensed physicians.<br><br>RVA HealthPartner does not practice medicine. We
           focus strictly on your behavior, routines, expectations, and accountability — while all diagnosing,
           prescribing, and medical decisions remain exclusively with licensed physicians.</p>
@@ -2130,7 +2213,7 @@
             <td><span class="no">✗</span></td>
           </tr>
           <tr>
-            <td>GLP-1 / peptide access</td>
+            <td>GLP-1 and physician-directed peptide access</td>
             <td><span class="yes">✓</span></td>
             <td><span class="no">✗</span></td>
             <td><span class="yes">✓</span></td>
@@ -2196,7 +2279,20 @@
         <div class="faq-a">
           No. Package 2 — Foundation — is a complete strength, nutrition, and data-driven coaching program with no
           medical component. Package 1 adds clinical support through Asher Med for clients who want physician evaluation
-          for GLP-1, GIP, or peptide therapy. Either way, the coaching system is the same.
+          for GLP-1s, GIP therapy, recovery peptides, metabolic support, or other peptide-based care. Either way, the
+          coaching system is the same.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is clinical support limited to semaglutide and tirzepatide?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          No. GLP-1 medications are only one part of the clinical side. When appropriate, Package 1 may also include
+          physician-directed peptide protocols such as NAD+, sermorelin, MOTS-c, BPC-157 / TB-500, GHK-Cu, and other
+          supportive options based on your goals, history, and physician assessment.
         </div>
       </div>
 
@@ -2294,8 +2390,9 @@
       One.</h2>
 
     <div class="final-copy">
-      <p>You've probably done the gym thing. Maybe the diet thing. Maybe you've looked at GLP-1 medications and wondered
-        whether to try them. Maybe you've already tried them and aren't sure why the results aren't what you expected.
+      <p>You've probably done the gym thing. Maybe the diet thing. Maybe you've looked at GLP-1 medications, peptide
+        support, or physician-guided optimization and wondered what actually belongs in a serious plan. Maybe you've
+        already tried one piece of it and aren't sure why the results aren't what you expected.
       </p>
       <p>The problem isn't you. Nobody has ever put the whole system together — the strength, the nutrition, the data,
         and the medical support — in one coherent program that actually tracks whether it's working.</p>
@@ -2362,14 +2459,52 @@
             <input type="email" id="f-email" name="email" placeholder="you@email.com" required>
           </div>
           <div class="form-group">
-            <label for="f-glp1">Current GLP-1 status</label>
-            <select id="f-glp1" name="glp1_status" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="yes">Currently on semaglutide or tirzepatide</option>
-              <option value="considering">Considering GLP-1 support</option>
-              <option value="no">Not using medication</option>
-              <option value="stopped">Previously used GLP-1 therapy</option>
-            </select>
+            <label>Medication or peptide interest</label>
+            <span class="form-group-hint">Check all that apply.</span>
+            <div class="checkbox-grid" role="group" aria-label="Medication or peptide interest">
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-glp1-current" name="interest" value="Currently on semaglutide or tirzepatide">
+                <label for="interest-glp1-current">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Currently on semaglutide or tirzepatide</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-glp1-considering" name="interest" value="Considering GLP-1 support">
+                <label for="interest-glp1-considering">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Considering GLP-1 support</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-peptides" name="interest" value="Interested in peptide-based support beyond GLP-1s">
+                <label for="interest-peptides">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Interested in peptide-based support beyond GLP-1s</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-nad" name="interest" value="Interested in NAD+, MOTS-c, or metabolic support">
+                <label for="interest-nad">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Interested in NAD+, MOTS-c, or metabolic support</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-recovery" name="interest" value="Interested in recovery or tissue-support peptides">
+                <label for="interest-recovery">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Interested in recovery or tissue-support peptides</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
+                <input type="checkbox" id="interest-none" name="interest" value="Not currently interested in medication support">
+                <label for="interest-none">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Not currently interested in medication support</span>
+                </label>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label for="f-goal">Primary objective</label>
@@ -2487,7 +2622,9 @@
         data.append('name', strategyForm.querySelector('[name="name"]').value);
         data.append('email', strategyForm.querySelector('[name="email"]').value);
         data.append('phone', strategyForm.querySelector('[name="phone"]').value);
-        data.append('glp1', strategyForm.querySelector('[name="glp1_status"]').value);
+        const interests = Array.from(strategyForm.querySelectorAll('[name="interest"]:checked'))
+          .map((input) => input.value);
+        data.append('glp1', interests.length ? interests.join(', ') : 'No selection provided');
         data.append('primary_goal', strategyForm.querySelector('[name="primary_goal"]').value);
         const ctx = strategyForm.querySelector('[name="context"]');
         data.append('context', ctx ? ctx.value : '');
