@@ -178,14 +178,28 @@
     .hero-pillars {
       display: flex;
       align-items: center;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 20px;
       font-family: var(--font-display);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text);
       margin-bottom: 28px;
+      justify-content: flex-start;
+      width: fit-content;
+    }
+
+    @media (max-width: 640px) {
+      .hero-pillars {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .hero-pillars .pillar-sep {
+        display: none;
+      }
     }
 
     .hero-pillars .pillar-sep {
