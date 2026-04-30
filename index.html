@@ -816,54 +816,146 @@
     /* ── WHY RVAHP ── */
     .why-rvahp {
       background: var(--green-dark);
-      padding: 60px 72px;
+      padding: 80px 72px;
       color: white;
     }
 
     .why-rvahp h2 {
       font-family: var(--font-display);
-      font-size: 40px;
+      font-size: 42px;
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      line-height: 1.15;
     }
 
     .why-rvahp .section-sub {
       font-size: 18px;
       opacity: 0.78;
-      max-width: 600px;
+      max-width: 640px;
       line-height: 1.72;
       margin-bottom: 48px;
     }
 
-    .why-grid {
+    .why-narrative {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .why-narrative p {
+      font-size: 17px;
+      line-height: 1.75;
+      opacity: 0.88;
+      margin-bottom: 24px;
+    }
+
+    .why-narrative p:last-child {
+      margin-bottom: 0;
+    }
+
+    .why-narrative strong {
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .why-narrative em {
+      font-style: normal;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .why-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.5;
+      margin: 40px 0;
+      border: none;
+    }
+
+    .why-subhead {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .why-model-tagline {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.04em;
+      margin-top: 28px;
+      margin-bottom: 0;
+    }
+
+    /* Drivers grid */
+    .why-drivers-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px 48px;
-      margin-bottom: 48px;
+      gap: 16px;
+      margin-bottom: 56px;
     }
 
-    .why-item {
+    .driver-card {
       display: flex;
-      gap: 14px;
       align-items: flex-start;
+      gap: 16px;
+      padding: 20px 22px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
     }
 
-    .why-item .why-check {
+    .driver-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(184, 146, 58, 0.25);
+    }
+
+    .driver-num {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
       color: var(--gold);
-      font-size: 18px;
-      font-weight: 700;
       flex-shrink: 0;
-      margin-top: 2px;
+      width: 28px;
+      line-height: 1.3;
     }
 
-    .why-item p {
-      font-size: 16px;
-      line-height: 1.6;
-      opacity: 0.92;
+    .driver-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
     }
 
-    .why-item strong {
-      color: var(--gold-light);
+    .driver-content span {
+      font-size: 14px;
+      line-height: 1.55;
+      opacity: 0.65;
+    }
+
+    @media (max-width: 768px) {
+      .why-rvahp {
+        padding: 56px 24px;
+      }
+
+      .why-rvahp h2 {
+        font-size: 32px;
+      }
+
+      .why-drivers-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-narrative {
+        max-width: 100%;
+      }
+
+      .why-subhead {
+        font-size: 24px;
+      }
     }
 
     /* ── PROOF / SOCIAL ── */
@@ -2010,33 +2102,89 @@
 
   <!-- ── WHY RVA HEALTH PARTNER ── -->
   <div class="why-rvahp">
-    <h2>Why RVA Health Partner</h2>
-    <p class="section-sub">This isn't a gym membership with a lab coat. It's an integrated system where every decision is backed by your data.</p>
+    <h2>The Fitness Industry Has a Credibility Problem</h2>
 
-    <div class="why-grid">
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>Every program starts with a 3D body scan, RMR test, and bloodwork</strong>, not guesswork</p>
+    <div class="why-narrative">
+      <p>The bar to become a personal trainer is shockingly low. You could walk into any gym tomorrow and get paired with someone who passed an open-book cert over the weekend — or a doctor of physical therapy with a decade in the field. You'd pay the same rate. And you'd have no way to tell the difference until it's too late.</p>
+
+      <p>Meanwhile, if you have a phone and a ChatGPT subscription, you can build a 12-week workout program in 10 seconds. <em>And quit after two weeks.</em></p>
+
+      <p>That's the real problem. It's not that information is hard to find. It's that <strong>gyms aren't connecting fitness to health outcomes.</strong> There's no feedback loop. No measurement. No accountability tied to actual data.</p>
+    </div>
+
+    <hr class="why-divider">
+
+    <h3 class="why-subhead">We Built the Bridge</h3>
+
+    <div class="why-narrative">
+      <p>RVA Health Partner is the gym-as-clinic model — where exercise, nutrition, and medical support operate under one system.</p>
+
+      <p>We integrate your medical history, lab results, full-body composition scans, wearable data, and — when appropriate — physician-directed interventions like GLP-1s, hormones, and peptides. Every program is built from your data, adjusted by your data, and proven by your data.</p>
+
+      <p class="why-model-tagline">Measure. Adjust. Improve. Repeat.</p>
+    </div>
+
+    <hr class="why-divider">
+
+    <h3 class="why-subhead">What We Actually Track</h3>
+    <p class="section-sub">These are the measurable drivers of real fitness improvement — not vanity metrics.</p>
+
+    <div class="why-drivers-grid">
+      <div class="driver-card">
+        <span class="driver-num">1</span>
+        <div class="driver-content">
+          <strong>Body Fat %</strong>
+          <span>The single best proxy for metabolic health</span>
+        </div>
       </div>
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>Physician-supervised peptide and medication access</strong> through Asher Med, not a med spa</p>
+      <div class="driver-card">
+        <span class="driver-num">2</span>
+        <div class="driver-content">
+          <strong>Lean Muscle Mass</strong>
+          <span>Muscle gained, not just weight lost</span>
+        </div>
       </div>
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>Strength programming written for YOUR body</strong>, goals, and training history</p>
+      <div class="driver-card">
+        <span class="driver-num">3</span>
+        <div class="driver-content">
+          <strong>Resting Metabolic Rate</strong>
+          <span>How many calories you actually burn at rest</span>
+        </div>
       </div>
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>Nutrition targets built from your actual metabolic rate</strong>, adjusted every 4 weeks</p>
+      <div class="driver-card">
+        <span class="driver-num">4</span>
+        <div class="driver-content">
+          <strong>Strength Progression</strong>
+          <span>Objective load and volume increases over time</span>
+        </div>
       </div>
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>Body composition tracked over time</strong>, so you see fat lost AND muscle gained</p>
+      <div class="driver-card">
+        <span class="driver-num">5</span>
+        <div class="driver-content">
+          <strong>Bloodwork Markers</strong>
+          <span>Lipids, glucose, hormones, inflammation</span>
+        </div>
       </div>
-      <div class="why-item">
-        <span class="why-check">✓</span>
-        <p><strong>One coach, one system, full accountability</strong>, not a rotating roster of trainers</p>
+      <div class="driver-card">
+        <span class="driver-num">6</span>
+        <div class="driver-content">
+          <strong>Visceral Fat</strong>
+          <span>The hidden fat that drives disease risk</span>
+        </div>
+      </div>
+      <div class="driver-card">
+        <span class="driver-num">7</span>
+        <div class="driver-content">
+          <strong>Recovery &amp; HRV</strong>
+          <span>Readiness to train, stress load, sleep quality</span>
+        </div>
+      </div>
+      <div class="driver-card">
+        <span class="driver-num">8</span>
+        <div class="driver-content">
+          <strong>Waist-to-Hip Ratio</strong>
+          <span>A simple, powerful predictor of cardiovascular risk</span>
+        </div>
       </div>
     </div>
 
