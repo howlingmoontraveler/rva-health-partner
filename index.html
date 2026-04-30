@@ -268,6 +268,19 @@
       align-items: center;
       position: relative;
       z-index: 1;
+      perspective: 1000px;
+    }
+
+    .hero-visual img {
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      filter: drop-shadow(0 12px 24px rgba(0, 68, 40, 0.12)) drop-shadow(0 4px 10px rgba(163, 126, 44, 0.08));
+      transform-style: preserve-3d;
+      will-change: transform, filter;
+    }
+
+    .hero-visual img:hover {
+      transform: rotateY(-4deg) rotateX(4deg) translateZ(15px) scale(1.02);
+      filter: drop-shadow(0 24px 40px rgba(0, 68, 40, 0.18)) drop-shadow(0 8px 16px rgba(163, 126, 44, 0.12));
     }
 
     .shader-wrapper {
