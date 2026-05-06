@@ -1718,17 +1718,25 @@
       line-height: 1.55;
     }
 
-    @media (max-width: 640px) {
-      .form-row {
+    @media (max-width: 960px) {
+      .apply-shell {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
+      
+      .apply-form-section {
+        padding: 48px 28px 56px;
+      }
+    }
 
+    @media (max-width: 640px) {
+      .form-row,
       .checkbox-grid {
         grid-template-columns: 1fr;
       }
 
       .apply-form-section {
-        padding: 48px 20px 56px;
+        padding: 40px 20px 48px;
       }
     }
 
@@ -1746,7 +1754,6 @@
       [data-reveal] {
         transform: none !important;
       }
-    }
     }
 
     /* Closing bracket for @media (hover: hover) and (pointer: fine) */
