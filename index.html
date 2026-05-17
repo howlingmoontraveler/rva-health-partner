@@ -126,11 +126,12 @@
     /* ── HERO ── */
     .hero {
       background: var(--cream);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 48px 72px 40px 72px;
-      gap: 48px;
+      text-align: center;
+      padding: 80px 72px 64px 72px;
+      gap: 56px;
       position: relative;
       overflow: hidden;
     }
@@ -139,15 +140,18 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 75% 60%, rgba(196, 154, 42, 0.07) 0%, transparent 60%),
-        radial-gradient(ellipse at 20% 30%, rgba(28, 92, 48, 0.05) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 50% 50%, rgba(196, 154, 42, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 10%, rgba(28, 92, 48, 0.05) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .hero-content {
-      max-width: 560px;
+      max-width: 900px;
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .hero-tag {
@@ -165,17 +169,17 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 600;
-      line-height: 1.18;
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin-bottom: 40px;
       color: var(--text);
     }
 
-    .hero h1 em {
+    .hero h1 strong {
       color: var(--green);
-      font-style: normal;
+      font-weight: 700;
     }
 
     .hero-pillars {
@@ -1345,11 +1349,8 @@
       }
 
       .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero-visual {
-        display: none;
+        font-size: 28px;
+        line-height: 1.4;
       }
 
       .steps-grid,
@@ -1838,18 +1839,9 @@
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-content">
-      <h1 style="font-size: 52px; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 32px;">
-        Proactive Strength. Personalized Longevity.<br>
-        <span style="color: var(--green);">Healthcare, Reinvented.</span>
+      <h1>
+        <strong>RVA Health Partner</strong> is a <strong>physician-partnered body composition system</strong> for Richmond adults who need strength training, metabolic diagnostics, nutrition, accountability, and clinical oversight connected under one protocol.
       </h1>
-      <div class="hero-pillars">
-        <span>Strength Training</span>
-        <span class="pillar-sep"></span>
-        <span>Precision Nutrition</span>
-        <span class="pillar-sep"></span>
-        <span>Medical Peptides</span>
-      </div>
-      <p class="hero-sub">RVA Health Partner is a physician-partnered body composition system for Richmond adults who need strength training, metabolic diagnostics, nutrition, accountability, and clinical oversight connected under one protocol.</p>
       <a href="#apply-form" class="btn-primary" id="apply">Book Your Strategy Session</a>
       <p class="cta-bonus">Includes a complimentary 3D body composition scan.</p>
       <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
