@@ -1191,7 +1191,7 @@
       color: rgba(255, 255, 255, 0.9);
       padding: 24px;
       border-radius: 12px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
       z-index: 9999;
       display: flex;
       flex-direction: column;
@@ -1794,13 +1794,14 @@
         grid-template-columns: 1fr;
         gap: 32px;
       }
-      
+
       .apply-form-section {
         padding: 48px 28px 56px;
       }
     }
 
     @media (max-width: 640px) {
+
       .form-row,
       .checkbox-grid {
         grid-template-columns: 1fr;
@@ -1891,18 +1892,21 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
   <!-- Meta Pixel Code (Wrapped for Consent) -->
   <script>
-  window.loadMetaPixel = function() {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '10150659360529511');
-    fbq('track', 'PageView');
-  };
+    window.loadMetaPixel = function () {
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+      }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '10150659360529511');
+      fbq('track', 'PageView');
+    };
   </script>
   <!-- End Meta Pixel Code -->
 </head>
@@ -1924,7 +1928,8 @@
   <div class="hero">
     <div class="hero-content">
       <h1>
-        <strong>RVA Health Partner</strong> is an <strong>elite body recomposition system</strong> for adults who need strength training, metabolic diagnostics, nutrition, accountability, and medical oversight connected under one protocol.
+        <strong>RVA Health Partner</strong> is an <strong>elite body recomposition system</strong> for adults who need
+        strength training, metabolic diagnostics, and clinical oversight connected under one protocol.
       </h1>
       <a href="#apply-form" class="btn-primary" id="apply">Book Your Strategy Session</a>
       <p class="cta-bonus">Includes a complimentary 3D body composition scan.</p>
@@ -2879,7 +2884,9 @@
       independently by Asher Health MSO and its licensed physicians. RVA Health Partner does not practice medicine,
       prescribe medication, or provide medical advice. Individual results vary.
       <br><br>
-      <a href="privacy-policy.html" style="color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: underline;">Privacy Policy & Cookie Consent</a>
+      <a href="privacy-policy.html"
+        style="color: rgba(255,255,255,0.7); font-size: 13px; text-decoration: underline;">Privacy Policy & Cookie
+        Consent</a>
     </div>
   </footer>
 
@@ -2995,7 +3002,8 @@
 
   <!-- ── COOKIE BANNER ── -->
   <div class="cookie-banner" id="cookieBanner">
-    <p>We use cookies, including the Meta Pixel, to personalize content and analyze our traffic. By clicking "Accept", you consent to our use of cookies. Read our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    <p>We use cookies, including the Meta Pixel, to personalize content and analyze our traffic. By clicking "Accept",
+      you consent to our use of cookies. Read our <a href="privacy-policy.html">Privacy Policy</a>.</p>
     <div class="cookie-buttons">
       <button class="cookie-btn decline" id="declineCookies">Decline</button>
       <button class="cookie-btn accept" id="acceptCookies">Accept</button>
@@ -3003,13 +3011,13 @@
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       const banner = document.getElementById('cookieBanner');
       const acceptBtn = document.getElementById('acceptCookies');
       const declineBtn = document.getElementById('declineCookies');
-      
+
       const consentState = localStorage.getItem('cookie_consent');
-      
+
       if (consentState === 'accepted') {
         if (typeof window.loadMetaPixel === 'function') window.loadMetaPixel();
       } else if (!consentState) {
