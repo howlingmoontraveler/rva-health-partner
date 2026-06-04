@@ -1417,14 +1417,18 @@
 
       .hero {
         grid-template-columns: 1fr;
-        padding-top: 56px;
-        padding-bottom: 56px;
+        padding-top: 24px;
+        padding-bottom: 24px;
         min-height: auto;
+        gap: 16px;
       }
 
-      .hero h1 {
-        font-size: 28px;
-        line-height: 1.4;
+      .hero-visual {
+        margin-top: -16px;
+      }
+
+      .hero-visual img {
+        max-width: 320px !important;
       }
 
       .steps-grid,
@@ -2001,7 +2005,7 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <div class="nav-logo">RVA <span>Health</span>Partner</div>
+    <h1 class="nav-logo">RVA <span>Health</span>Partner</h1>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#packages">Programs</a></li>
@@ -2013,7 +2017,6 @@
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-content">
-      <h1 style="margin-bottom: 16px;">RVA HealthPartner</h1>
       <div class="hero-pillars">
         <span>Elite Longevity Coaching</span>
         <span class="pillar-sep"></span>
