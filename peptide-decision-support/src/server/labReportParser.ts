@@ -19,6 +19,12 @@ export type ParsedLabUpload = {
   summary: LabUploadSummary | null;
 };
 
+type TextExtraction = {
+  method: LabUploadSummary["extractionMethod"];
+  text: string;
+  warnings?: string[];
+};
+
 const maxUploadBytes = 8 * 1024 * 1024;
 
 const labPatterns: LabPattern[] = [
@@ -178,7 +184,11 @@ function decodePdfTextOperators(content: string) {
   return parts.join(" ");
 }
 
-function extractPdfText(buffer: Buffer) {
+function extractionScore(text: string) {
+  return extractLabValues(text).length * 5000 + Math.min(text.length, 5000);
+}
+
+function extractPdfTextFallback(buffer: Buffer) {
   const chunks: string[] = [];
   const latin = buffer.toString("latin1");
   chunks.push(decodePdfTextOperators(latin));
@@ -201,15 +211,46 @@ function extractPdfText(buffer: Buffer) {
   return normalizeText(chunks.join("\n"));
 }
 
-async function textFromFile(file: File) {
+async function extractPdfText(buffer: Buffer) {
+  const fallbackText = extractPdfTextFallback(buffer);
+
+  try {
+    const { PDFParse } = await import("pdf-parse");
+    const parser = new PDFParse({ data: buffer });
+
+    try {
+      const result = await parser.getText();
+      const parsedText = normalizeText(result.text ?? "");
+      const text = extractionScore(parsedText) >= extractionScore(fallbackText) ? parsedText : fallbackText;
+      const warnings =
+        parsedText.length < 40 && fallbackText.length >= 40
+          ? ["Advanced PDF text extraction found little readable text, so fallback extraction was used."]
+          : [];
+
+      return { text, warnings };
+    } finally {
+      await parser.destroy();
+    }
+  } catch {
+    return {
+      text: fallbackText,
+      warnings: [
+        "Advanced PDF text extraction could not read this file. If it is password-protected, scanned, or image-only, use OCR or manual values."
+      ]
+    };
+  }
+}
+
+async function textFromFile(file: File): Promise<TextExtraction> {
   const fileType = file.type.toLowerCase();
   const fileName = file.name.toLowerCase();
   const buffer = Buffer.from(await file.arrayBuffer());
 
   if (fileType === "application/pdf" || fileName.endsWith(".pdf")) {
+    const pdf = await extractPdfText(buffer);
     return {
       method: "pdf-text" as const,
-      text: extractPdfText(buffer)
+      ...pdf
     };
   }
 
@@ -262,8 +303,9 @@ export async function parseUploadedLabReport(input: FormDataEntryValue | null): 
   }
 
   const extracted = await textFromFile(input);
+  warnings.push(...(extracted.warnings ?? []));
   if (extracted.method === "unsupported") {
-    warnings.push("Unsupported file type. Upload a text-based PDF, CSV, TXT, or HTML lab export.");
+    warnings.push("Unsupported file type. Upload a PDF, CSV, TXT, or HTML lab export.");
   }
   if (extracted.method === "pdf-text" && extracted.text.length < 40) {
     warnings.push("No readable text was found in the PDF. It may be a scanned image and would need OCR before automatic extraction.");

@@ -213,7 +213,7 @@ export function AssessmentForm() {
         <p className="eyebrow">Blood work</p>
         <h2>Upload lab report</h2>
         <p className="muted small">
-          Preferred. Upload a text-based PDF, CSV, TXT, or HTML lab export. Scanned image PDFs may need manual entry because they require OCR.
+          Preferred. Upload a PDF, CSV, TXT, or HTML lab export. Image-only scanned PDFs may need OCR or manual entry.
         </p>
         <div className="field">
           <label htmlFor="labReport">Lab report file</label>
