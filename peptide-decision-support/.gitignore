@@ -7,3 +7,4 @@ local-preview
 *.tsbuildinfo
 *.log
 .env*
+.vercel
