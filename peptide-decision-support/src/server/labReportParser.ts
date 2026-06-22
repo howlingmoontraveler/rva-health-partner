@@ -41,7 +41,24 @@ const labPatterns: LabPattern[] = [
   { key: "egfr", aliases: ["estimated glomerular filtration rate", "egfr", "gfr"], min: 1, max: 200 },
   { key: "tsh", aliases: ["thyroid stimulating hormone", "tsh"], min: 0.01, max: 150 },
   { key: "free_t4", aliases: ["free t4", "t4, free", "thyroxine free"], min: 0.1, max: 12 },
-  { key: "vitamin_d", aliases: ["25-hydroxy vitamin d", "25(oh) vitamin d", "vitamin d, 25-hydroxy", "vitamin d"], min: 1, max: 250 },
+  {
+    key: "vitamin_d",
+    aliases: [
+      "25-hydroxy vitamin d",
+      "25 hydroxy vitamin d",
+      "25-hydroxyvitamin d",
+      "25 hydroxyvitamin d",
+      "25(oh) vitamin d",
+      "25 oh vitamin d",
+      "25-oh vitamin d",
+      "vitamin d, 25-hydroxy",
+      "vitamin d 25-hydroxy",
+      "vitamin d 25 hydroxy",
+      "vitamin d"
+    ],
+    min: 1,
+    max: 250
+  },
   { key: "b12", aliases: ["vitamin b12", "b-12", "b12"], min: 50, max: 4000 },
   { key: "folate", aliases: ["folate", "folic acid"], min: 0.5, max: 150 },
   { key: "ferritin", aliases: ["ferritin"], min: 1, max: 10000 },
@@ -75,56 +92,170 @@ function parseNumber(raw: string) {
 }
 
 function confidenceFromScore(score: number): ExtractedLabValue["confidence"] {
-  if (score >= 5) return "high";
-  if (score >= 3) return "moderate";
+  if (score >= 8) return "high";
+  if (score >= 5) return "moderate";
   return "low";
+}
+
+function unitVariants(unit: string) {
+  const normalized = unit.toLowerCase().replace(/[µμ]/g, "u").replace(/\s+/g, "");
+  const variants = new Set([unit.toLowerCase(), normalized]);
+  if (unit === "%") {
+    variants.add("%");
+    variants.add("percent");
+  }
+  if (normalized === "uiu/ml") {
+    variants.add("uiu/ml");
+    variants.add("uiu / ml");
+    variants.add("u iu/ml");
+    variants.add("miu/l");
+  }
+  if (normalized === "ml/min/1.73m2") {
+    variants.add("ml/min/1.73");
+    variants.add("ml/min/1.73m2");
+    variants.add("ml/min/1.73 m2");
+  }
+  return [...variants];
+}
+
+type NumberToken = {
+  raw: string;
+  value: number;
+  start: number;
+  end: number;
+};
+
+function numberTokens(text: string) {
+  const tokens: NumberToken[] = [];
+  for (const match of text.matchAll(/[<>≤≥]?\s*-?\d[\d,]*(?:\.\d+)?/g)) {
+    if (match.index === undefined) continue;
+    const raw = match[0];
+    const value = parseNumber(raw.replace(/[<>≤≥]/g, "").trim());
+    if (value === null) continue;
+    tokens.push({ raw, value, start: match.index, end: match.index + raw.length });
+  }
+  return tokens;
+}
+
+function isDateLike(text: string, token: NumberToken) {
+  const before = text.slice(Math.max(0, token.start - 8), token.start);
+  const after = text.slice(token.end, token.end + 8);
+  return /\/\s*$/.test(before) || /^\s*\//.test(after) || /\b(date|collected|reported|dob)\b/i.test(before + after);
+}
+
+function isReferenceRangePart(text: string, token: NumberToken) {
+  const before = text.slice(Math.max(0, token.start - 16), token.start).toLowerCase();
+  const after = text.slice(token.end, token.end + 16).toLowerCase();
+  return /[-–—]\s*$/.test(before) || /^\s*[-–—]/.test(after) || /\b(to|through|thru)\s*$/.test(before) || /^\s*(to|through|thru)\b/.test(after);
+}
+
+function hasReferenceContext(text: string, token: NumberToken) {
+  const context = text.slice(Math.max(0, token.start - 42), Math.min(text.length, token.end + 42)).toLowerCase();
+  return /\b(ref(?:erence)?|interval|range|normal|expected|desired|optimal)\b/.test(context);
+}
+
+function hasResultContext(text: string, token: NumberToken) {
+  const context = text.slice(Math.max(0, token.start - 32), Math.min(text.length, token.end + 20)).toLowerCase();
+  return /\b(result|current|value|actual|final)\b/.test(context);
+}
+
+function hasFlagContext(text: string, token: NumberToken) {
+  const context = text.slice(token.end, Math.min(text.length, token.end + 18)).toLowerCase();
+  return /(^|\s)(h|l|high|low|abnormal|flag)(\s|$)/.test(context);
+}
+
+function hasUnitContext(unit: string, text: string, token: NumberToken) {
+  const context = text
+    .slice(Math.max(0, token.start - 18), Math.min(text.length, token.end + 24))
+    .toLowerCase()
+    .replace(/[µμ]/g, "u")
+    .replace(/\s+/g, "");
+  return unitVariants(unit).some((variant) => context.includes(variant.replace(/\s+/g, "")));
+}
+
+function isVitaminDLabelNumber(pattern: LabPattern, token: NumberToken, text: string) {
+  if (pattern.key !== "vitamin_d" || token.value !== 25) return false;
+  const after = text.slice(token.end, token.end + 22).toLowerCase();
+  const before = text.slice(Math.max(0, token.start - 8), token.start).toLowerCase();
+  return /hydroxy|\(?oh\)?/.test(after) || /\b25\s*$/.test(before);
+}
+
+function scoreToken(pattern: LabPattern, alias: string, line: string, afterAlias: string, token: NumberToken, firstNonRangeIndex: number, tokenIndex: number) {
+  if (isDateLike(afterAlias, token) || isVitaminDLabelNumber(pattern, token, afterAlias)) return null;
+
+  const value = token.value;
+  if (value < pattern.min || value > pattern.max) return null;
+
+  const field = bloodworkFieldByKey[pattern.key];
+  const rangePart = isReferenceRangePart(afterAlias, token);
+  const unit = hasUnitContext(field.unit, afterAlias, token);
+  const referenceContext = hasReferenceContext(afterAlias, token);
+  const exactAliasBonus = alias === field.shortLabel.toLowerCase() || alias === field.label.toLowerCase() ? 1 : 0;
+
+  let score = 1 + exactAliasBonus;
+  score += rangePart ? -6 : 4;
+  if (unit) score += 3;
+  if (hasResultContext(afterAlias, token)) score += 3;
+  if (hasFlagContext(afterAlias, token)) score += 1;
+  if (tokenIndex === firstNonRangeIndex) score += 2;
+  else if (tokenIndex < 2) score += 1;
+  if (referenceContext) score -= rangePart ? 3 : 1;
+  if (line.length < 180) score += 1;
+
+  if (score < 5) return null;
+
+  return {
+    key: pattern.key,
+    label: field.label,
+    value,
+    unit: field.unit,
+    rawLabel: alias,
+    score,
+    confidence: confidenceFromScore(score)
+  } satisfies Candidate;
 }
 
 function candidateFromLine(pattern: LabPattern, line: string): Candidate | null {
   const lower = line.toLowerCase();
   if (pattern.rejectLineIncludes?.some((term) => lower.includes(term))) return null;
 
+  const candidates: Candidate[] = [];
   for (const alias of pattern.aliases) {
     const match = aliasRegex(alias).exec(line);
     if (!match || match.index === undefined) continue;
 
     const aliasStart = match.index + match[1].length;
-    const after = line.slice(aliasStart + match[2].length, aliasStart + match[2].length + 110);
-    const valueMatch = /(?:result|value)?\s*[:=]?\s*[<>]?\s*(-?\d[\d,]*(?:\.\d+)?)/i.exec(after);
-    if (!valueMatch) continue;
+    const after = line.slice(aliasStart + match[2].length, aliasStart + match[2].length + 180);
+    const tokens = numberTokens(after);
+    const firstNonRangeIndex = tokens.findIndex((token) => !isReferenceRangePart(after, token) && !isDateLike(after, token));
 
-    const value = parseNumber(valueMatch[1]);
-    if (value === null || value < pattern.min || value > pattern.max) continue;
-
-    const field = bloodworkFieldByKey[pattern.key];
-    const unitText = field.unit.toLowerCase().replace("uiU".toLowerCase(), "uiu");
-    const lineAfterValue = after.slice(valueMatch.index, valueMatch.index + 60).toLowerCase();
-    const hasUnit = lineAfterValue.includes(unitText.toLowerCase()) || lineAfterValue.includes(field.unit.toLowerCase());
-    const exactAliasBonus = alias === field.shortLabel.toLowerCase() || alias === field.label.toLowerCase() ? 1 : 0;
-    const score = 2 + (hasUnit ? 2 : 0) + exactAliasBonus + (line.length < 160 ? 1 : 0);
-
-    return {
-      key: pattern.key,
-      label: field.label,
-      value,
-      unit: field.unit,
-      rawLabel: alias,
-      score,
-      confidence: confidenceFromScore(score)
-    };
+    tokens.forEach((token, index) => {
+      const candidate = scoreToken(pattern, alias, line, after, token, firstNonRangeIndex, index);
+      if (candidate) candidates.push(candidate);
+    });
   }
 
-  return null;
+  return candidates.sort((a, b) => b.score - a.score)[0] ?? null;
 }
 
-function extractLabValues(text: string) {
+export function extractLabValuesFromText(text: string) {
   const candidates = new Map<string, Candidate>();
-  const lines = normalizeText(text)
+  const normalized = normalizeText(text);
+  const rawLines = normalized
+    .split(/\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.length >= 3);
+  const chunkLines = normalized
     .split(/\n| {3,}|\t/)
     .map((line) => line.trim())
     .filter((line) => line.length >= 3);
+  const lines = [...new Set([...rawLines, ...chunkLines])];
 
-  const searchableLines = lines.length ? lines : [normalizeText(text)];
+  const searchableLines = new Set(lines.length ? lines : [normalized]);
+  lines.forEach((line, index) => {
+    if (lines[index + 1]) searchableLines.add(`${line} ${lines[index + 1]}`);
+    if (lines[index + 1] && lines[index + 2]) searchableLines.add(`${line} ${lines[index + 1]} ${lines[index + 2]}`);
+  });
   for (const line of searchableLines) {
     for (const pattern of labPatterns) {
       const candidate = candidateFromLine(pattern, line);
@@ -185,7 +316,7 @@ function decodePdfTextOperators(content: string) {
 }
 
 function extractionScore(text: string) {
-  return extractLabValues(text).length * 5000 + Math.min(text.length, 5000);
+  return extractLabValuesFromText(text).length * 5000 + Math.min(text.length, 5000);
 }
 
 function extractPdfTextFallback(buffer: Buffer) {
@@ -311,9 +442,12 @@ export async function parseUploadedLabReport(input: FormDataEntryValue | null): 
     warnings.push("No readable text was found in the PDF. It may be a scanned image and would need OCR before automatic extraction.");
   }
 
-  const extractedValues = extractLabValues(extracted.text);
+  const extractedValues = extractLabValuesFromText(extracted.text);
   if (!extractedValues.length && extracted.method !== "unsupported") {
     warnings.push("No supported biomarkers were detected automatically. Use manual values for anything the extractor missed.");
+  }
+  if (extractedValues.length) {
+    warnings.push("Verify extracted values against the report; only moderate/high confidence result-column matches are auto-used.");
   }
 
   return {

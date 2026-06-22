@@ -137,7 +137,7 @@ function UploadSummaryView({ upload }: { upload?: LabUploadSummary | null }) {
       {upload.extractedValues.length ? (
         <div className="tag-row">
           {upload.extractedValues.map((value) => (
-            <span className="tag" key={value.key}>{value.label}: {value.value} {value.unit}</span>
+            <span className="tag" key={value.key}>{value.label}: {value.value} {value.unit} ({value.confidence})</span>
           ))}
         </div>
       ) : null}
