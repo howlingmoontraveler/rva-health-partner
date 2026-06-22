@@ -9,6 +9,11 @@ import type { AssessmentInput, AssessmentRecord, AssessmentStatus } from "@/lib/
 import { saveAssessment, updateAssessmentStatus } from "@/server/db";
 import { parseUploadedLabReport } from "@/server/labReportParser";
 
+export type CreateAssessmentFormState = {
+  record: AssessmentRecord | null;
+  error: string | null;
+};
+
 const boolFromForm = (formData: FormData, key: string) => formData.get(key) === "on" || formData.get(key) === "true";
 const numberFromForm = (formData: FormData, key: string) => {
   const value = Number(formData.get(key));
@@ -62,7 +67,14 @@ const schema = z.object({
   secondaryGoals: z.array(z.string()).max(2)
 });
 
-export async function createAssessment(formData: FormData) {
+function formErrorMessage(error: unknown) {
+  if (error instanceof z.ZodError) {
+    return "Please complete the required contact, goal, lab availability, and readiness fields.";
+  }
+  return "Something went wrong while generating the report. Please try again.";
+}
+
+async function buildAssessmentRecord(formData: FormData) {
   const parsed = schema.parse({
     firstName: formData.get("firstName"),
     email: formData.get("email"),
@@ -140,7 +152,7 @@ export async function createAssessment(formData: FormData) {
 
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
-  const record: AssessmentRecord = {
+  return {
     id,
     createdAt: now,
     updatedAt: now,
@@ -148,10 +160,35 @@ export async function createAssessment(formData: FormData) {
     notes: "",
     ...input,
     results: runMatchingEngine(input)
-  };
+  } satisfies AssessmentRecord;
+}
+
+async function trySaveAssessment(record: AssessmentRecord) {
+  try {
+    await saveAssessment(record);
+  } catch {
+    // Vercel serverless storage can be ephemeral. The user-facing report should still render.
+  }
+}
+
+export async function createAssessmentState(
+  _previousState: CreateAssessmentFormState,
+  formData: FormData
+): Promise<CreateAssessmentFormState> {
+  try {
+    const record = await buildAssessmentRecord(formData);
+    await trySaveAssessment(record);
+    return { record, error: null };
+  } catch (error) {
+    return { record: null, error: formErrorMessage(error) };
+  }
+}
+
+export async function createAssessment(formData: FormData) {
+  const record = await buildAssessmentRecord(formData);
 
   await saveAssessment(record);
-  redirect(`/assessment/${id}/results`);
+  redirect(`/assessment/${record.id}/results`);
 }
 
 export async function setAssessmentStatus(formData: FormData) {

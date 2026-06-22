@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useActionState, useMemo, useState } from "react";
+import { ReportView } from "@/components/assessment/ReportView";
 import { bloodworkFields } from "@/lib/data/functionalBloodwork";
 import { baselineLabs } from "@/lib/data/labPanels";
 import { goalOptions } from "@/lib/data/options";
-import { createAssessment } from "@/server/actions";
+import { createAssessmentState, type CreateAssessmentFormState } from "@/server/actions";
 
 const redFlags = [
   ["pregnancy", "Are you pregnant, trying to conceive, or breastfeeding?"],
@@ -40,7 +41,13 @@ const medications = [
   ["moodStabilizersAntipsychotics", "Mood stabilizers or antipsychotics"]
 ];
 
+const initialAssessmentState: CreateAssessmentFormState = {
+  record: null,
+  error: null
+};
+
 export function AssessmentForm() {
+  const [assessmentState, formAction, pending] = useActionState(createAssessmentState, initialAssessmentState);
   const [accepted, setAccepted] = useState(false);
   const [primaryGoal, setPrimaryGoal] = useState("");
   const [secondaryGoals, setSecondaryGoals] = useState<string[]>([]);
@@ -60,8 +67,13 @@ export function AssessmentForm() {
     });
   }
 
+  if (assessmentState.record) {
+    return <ReportView assessment={assessmentState.record} />;
+  }
+
   return (
-    <form className="form" action={createAssessment} encType="multipart/form-data">
+    <form className="form" action={formAction} encType="multipart/form-data">
+      {assessmentState.error ? <div className="notice warn">{assessmentState.error}</div> : null}
       <section className="step">
         <p className="eyebrow">Boundary</p>
         <h2>Welcome</h2>
@@ -283,8 +295,8 @@ export function AssessmentForm() {
         </div>
       </section>
 
-      <button className="button" disabled={!accepted || !primaryGoal} type="submit">
-        Generate Report
+      <button className="button" disabled={!accepted || !primaryGoal || pending} type="submit">
+        {pending ? "Generating Report" : "Generate Report"}
       </button>
     </form>
   );
