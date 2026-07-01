@@ -1124,8 +1124,10 @@
       transition: color 240ms var(--ease);
     }
 
-    .faq-q:hover {
-      color: var(--green);
+    @media (hover: hover) and (pointer: fine) {
+      .faq-q:hover {
+        color: var(--green);
+      }
     }
 
     .faq-icon {
@@ -1134,6 +1136,7 @@
       flex-shrink: 0;
       transition: transform 0.45s;
       line-height: 1;
+      pointer-events: none;
     }
 
     .faq-q.open .faq-icon {
@@ -1358,9 +1361,11 @@
       transition: background 240ms var(--ease);
     }
 
-    .faq-item:hover {
-      background: var(--green-faint);
-      border-radius: 8px;
+    @media (hover: hover) and (pointer: fine) {
+      .faq-item:hover {
+        background: var(--green-faint);
+        border-radius: 8px;
+      }
     }
 
     .timeline-steps li {
@@ -1848,25 +1853,25 @@
   </style>
   <meta name="google-site-verification" content="UFTzOvThxXrooTJbJ3vnP4NjM_zv688_DX7K0O1v3aQ" />
   <meta name="description"
-    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Health.">
+    content="Strength coaching, GLP-1 medical weight-loss, and menopause/hormone care in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Health.">
   <link rel="canonical" href="https://rvahealthpartner.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://rvahealthpartner.com/">
   <meta property="og:title"
     content="RVA Health Partner | Body Recomposition &amp; Elite one-on-one strength training, Richmond VA">
   <meta property="og:description"
-    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Health.">
+    content="Strength coaching, GLP-1 medical weight-loss, and menopause/hormone care in Richmond, VA. Programs built on body composition scanning, RMR testing, bloodwork, and coordinated clinical oversight through Asher Health.">
   <meta property="og:image" content="https://rvahealthpartner.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="RVA Health Partner | Body Recomposition &amp; Elite one-on-one strength training">
   <meta name="twitter:description"
-    content="Strength coaching and physician-directed peptide support in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
+    content="Strength coaching, GLP-1 medical weight-loss, and menopause/hormone care in Richmond, VA. Programs built on body composition scanning, RMR testing, and bloodwork.">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "RVA Health Partner",
-    "description": "Strength coaching and clinical health programs in Richmond, VA. Body composition scanning, RMR testing, precision nutrition, and physician-directed peptide support through Asher Health.",
+    "description": "Strength coaching and clinical health programs in Richmond, VA. Body composition scanning, GLP-1 medical weight-loss, and hormone care through Asher Health.",
     "url": "https://rvahealthpartner.com",
     "email": "john@rvahealthpartner.com",
     "address": {
@@ -1935,15 +1940,15 @@
         "name": "Do I have to be on GLP-1 medication to work with you?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Package 2: Foundation is a complete strength, nutrition, and data-driven coaching program with no medical component. Package 1 adds clinical support through Asher Health for clients who want physician evaluation for GLP-1s, GIP therapy, recovery peptides, metabolic support, or other peptide-based care. Either way, the coaching system is the same."
+          "text": "No. Package 2: Foundation is a complete strength, nutrition, and data-driven coaching program with no medical component. Package 1 adds clinical support through Asher Health for clients who want physician evaluation for GLP-1s, hormone care (menopause, HRT, TRT), or targeted peptide support. Either way, the coaching system is the same."
         }
       },
       {
         "@type": "Question",
-        "name": "Is clinical support limited to semaglutide and tirzepatide?",
+        "name": "Is clinical support limited to weight-loss medications?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. GLP-1 medications are only one part of the clinical side. When appropriate, Package 1 may also include physician-directed peptide protocols such as NAD+, sermorelin, MOTS-c, BPC-157 / TB-500, GHK-Cu, and other supportive options based on your goals, history, and physician assessment."
+          "text": "No. GLP-1 medications are only one part of the clinical side. When appropriate, Package 1 may also include physician-directed hormone therapy (Menopause/HRT, TRT) or peptide protocols (sermorelin, BPC-157, etc.) based on your goals, history, and physician assessment."
         }
       },
       {
@@ -2024,7 +2029,7 @@
   <div class="hero">
     <div class="hero-content">
       <h1>
-        <strong>Longevity Coaching</strong> in Richmond offering <strong>strength training</strong>, <strong>medical peptides</strong>, <strong>metabolic diagnostics</strong>, and <strong>genomics-based nutrition support</strong>.
+        <strong>Longevity Coaching</strong> in Richmond offering <strong>elite strength training</strong>, <strong>GLP-1 medical weight-loss</strong>, <strong>menopause & hormone care</strong>, and <strong>metabolic diagnostics</strong>.
       </h1>
       <a href="#apply-form" class="btn-primary" id="apply">Book Your Strategy Session</a>
       <p class="cta-bonus">Includes a complimentary 3D body composition scan.</p>
@@ -2044,13 +2049,13 @@
       <!-- Set 1 -->
       <div class="proof-set">
         <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
-          Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Body Composition Scanning
+          GLP-1 & Hormone Care &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Body Composition Scanning
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
           Nutrition Decision Support &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
-          Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
+          GLP-1 & Hormone Care &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
           Nutrition Decision Support &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture
@@ -2059,13 +2064,13 @@
       <!-- Set 2 -->
       <div class="proof-set">
         <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
-          Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
+          GLP-1 & Hormone Care &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
           Nutrition Decision Support &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span class="proof-text">Elite 1-on-1 Strength Training &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
-          Physician-Guided Peptides &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
+          GLP-1 & Hormone Care &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; 3D Body Composition
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Metabolic Testing
           &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Bloodwork &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp;
           Nutrition Decision Support &nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;&nbsp; Habit Architecture
@@ -2086,7 +2091,7 @@
       </div>
       <div class="who-for-item">
         <span class="wf-marker">●</span>
-        <span>Anyone seeking medically supervised weight management or peptide support</span>
+        <span>Anyone seeking GLP-1 medical weight-loss or hormone care (menopause, TRT)</span>
       </div>
       <div class="who-for-item">
         <span class="wf-marker">●</span>
@@ -2112,17 +2117,16 @@
     <div class="did-you-know">
       <blockquote
         style="font-size: 19px; font-style: italic; color: var(--text); line-height: 1.65; margin-bottom: 24px; padding-left: 18px; border-left: 3px solid var(--gold);">
-        "I'd love to get tested for peptides, but I'm not even sure where to start."
+        "I'm considering a GLP-1 for weight loss, but I'm terrified of losing muscle mass."
         <span
           style="display: block; margin-top: 8px; font-size: 13px; font-style: normal; color: var(--text-muted); letter-spacing: 0.02em;">—
           Actual inquiry from a prospective client</span>
       </blockquote>
       <div class="did-you-know-label">Clinical context</div>
-      <p>Clinical support here is broader than one medication category. <strong>GLP-1s are one tool, not the entire
-          model.</strong> Every RVA Health Partner program starts with baseline body composition testing, bloodwork, and
-        strength programming so any physician-directed peptide or medication plan sits inside a system that measures
+      <p>Clinical support here is broader than just prescribing a medication. <strong>GLP-1s and hormone therapies (HRT, TRT) are powerful tools, but they aren't the entire model.</strong> Every RVA Health Partner program starts with baseline body composition testing, bloodwork, and
+        strength programming so any physician-directed weight-loss, menopause care, or peptide plan sits inside a system that measures
         what is actually changing.</p>
-      <p style="margin-top: 16px;">We help clients avoid random peptide use by turning goals, labs, training, nutrition,
+      <p style="margin-top: 16px;">We help clients avoid random medication or peptide use by turning goals, labs, training, nutrition,
         and medical history into a responsible, provider-collaboration plan.</p>
     </div>
   </section>
@@ -2153,8 +2157,7 @@
         </div>
         <p>Based on your results, we design your strength program, nutrition targets and, for Package 1 clients,
           initiate your clinical evaluation through Asher Health. Their licensed physicians independently assess
-          eligibility for GLP-1/GIP therapy and other peptide-based support, including protocols for recovery,
-          metabolic health, performance, and body-composition goals when clinically appropriate.<br><br>Already working
+          eligibility for GLP-1/GIP therapy (including semaglutide and tirzepatide), hormone care (menopause/HRT, TRT), and targeted peptide support when clinically appropriate.<br><br>Already working
           with an endocrinologist, cardiologist, or PCP? Bring the records. Asher Health can coordinate alongside your
           existing providers, so you do not have to switch care to get clinical oversight integrated with your
           training.</p>
@@ -2248,9 +2251,8 @@
           <div class="package-feature">
             <span class="check">✓</span>
             <div>
-              <div class="feature-name">Expanded Peptide Protocols</div>
-              <div class="feature-desc">Physician-directed options may include NAD+, sermorelin, MOTS-c, BPC-157 /
-                TB-500, GHK-Cu, and other peptide support when clinically appropriate</div>
+              <div class="feature-name">Hormone & Peptide Protocols</div>
+              <div class="feature-desc">Physician-directed options for Menopause/Perimenopause (HRT), TRT, and peptides (like sermorelin or BPC-157) when clinically appropriate</div>
             </div>
           </div>
           <div class="package-feature">
@@ -2376,7 +2378,7 @@
         system.</p>
 
       <p>We integrate your medical history, lab results, full-body composition scans and, when
-        appropriate, physician-directed interventions like GLP-1s, hormones, and peptides. Every program is built from
+        appropriate, physician-directed interventions like GLP-1s, hormone care (menopause/HRT, TRT), and targeted peptides. Every program is built from
         your data, adjusted by your data, and proven by your data.</p>
 
       <p class="why-model-tagline">Measure. Adjust. Improve. Repeat.</p>
@@ -2697,7 +2699,7 @@
           No. Package 2: Foundation is a complete strength, nutrition, and data-driven coaching program with no
           medical component. Package 1 adds clinical support through Asher Health for clients who want physician
           evaluation
-          for GLP-1s, GIP therapy, recovery peptides, metabolic support, or other peptide-based care. Either way, the
+          for GLP-1s, hormone care (menopause, HRT, TRT), or targeted peptide support. Either way, the
           coaching system is the same.
         </div>
       </div>
@@ -2705,14 +2707,13 @@
       <div class="faq-item">
         <h3 class="faq-heading">
           <button class="faq-q" onclick="toggleFaq(this)">
-            Is clinical support limited to semaglutide and tirzepatide?
+            Is clinical support limited to weight-loss medications?
             <span class="faq-icon">+</span>
           </button>
         </h3>
         <div class="faq-a">
           No. GLP-1 medications are only one part of the clinical side. When appropriate, Package 1 may also include
-          physician-directed peptide protocols such as NAD+, sermorelin, MOTS-c, BPC-157 / TB-500, GHK-Cu, and other
-          supportive options based on your goals, history, and physician assessment.
+          physician-directed hormone therapy (Menopause/HRT, TRT) or peptide protocols (sermorelin, BPC-157, etc.) based on your goals, history, and physician assessment.
         </div>
       </div>
 
@@ -2896,11 +2897,19 @@
                 </label>
               </div>
               <div class="checkbox-card">
+                <input type="checkbox" id="interest-hormones" name="interest"
+                  value="Hormone care (Menopause, HRT, TRT)">
+                <label for="interest-hormones">
+                  <span class="checkbox-indicator" aria-hidden="true"></span>
+                  <span>Hormone care (Menopause, HRT, TRT)</span>
+                </label>
+              </div>
+              <div class="checkbox-card">
                 <input type="checkbox" id="interest-peptides" name="interest"
-                  value="Interested in peptide-based support beyond GLP-1s">
+                  value="Interested in peptide-based support (sermorelin, etc.)">
                 <label for="interest-peptides">
                   <span class="checkbox-indicator" aria-hidden="true"></span>
-                  <span>Interested in peptide-based support beyond GLP-1s</span>
+                  <span>Interested in peptide-based support</span>
                 </label>
               </div>
               <div class="checkbox-card">
@@ -3013,10 +3022,19 @@
 
     // ── FAQ TOGGLE ──
     function toggleFaq(btn) {
-      const answer = btn.nextElementSibling;
-      const isOpen = answer.classList.contains('open');
-      document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+      var answer = btn.closest('.faq-item').querySelector('.faq-a');
+      var isOpen = answer.classList.contains('open');
+      
+      var allAnswers = document.querySelectorAll('.faq-a');
+      for (var i = 0; i < allAnswers.length; i++) {
+        allAnswers[i].classList.remove('open');
+      }
+      
+      var allQuestions = document.querySelectorAll('.faq-q');
+      for (var j = 0; j < allQuestions.length; j++) {
+        allQuestions[j].classList.remove('open');
+      }
+      
       if (!isOpen) {
         answer.classList.add('open');
         btn.classList.add('open');
