@@ -169,12 +169,13 @@
 
     .hero h1 {
       font-family: var(--font-display);
-      font-size: 38px;
+      font-size: 42px;
       font-weight: 500;
       line-height: 1.35;
       letter-spacing: -0.01em;
-      margin-bottom: 40px;
+      margin-bottom: 24px;
       color: var(--text);
+      max-width: 860px;
     }
 
     .hero h1 strong {
@@ -222,8 +223,8 @@
       font-size: 18px;
       color: var(--text-muted);
       line-height: 1.72;
-      margin-bottom: 38px;
-      max-width: 490px;
+      margin-bottom: 48px;
+      max-width: 680px;
     }
 
     .btn-primary {
@@ -245,6 +246,28 @@
 
     .btn-primary:active {
       transform: scale(0.98);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-text-link {
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 16px;
+      transition: color 0.2s var(--ease);
+    }
+    
+    .hero-text-link:hover {
+      color: var(--green-dark);
+      text-decoration: underline;
     }
 
     .btn-gold {
@@ -2008,7 +2031,7 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <div class="nav-logo">RVA <span>Health</span>Partner</div>
+    <a href="/" class="nav-logo">RVA <span>Health</span>Partner</a>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#packages">Programs</a></li>
@@ -2021,18 +2044,23 @@
   <!-- ── HERO ── -->
   <div class="hero">
     <div class="hero-content">
+      <span class="hero-tag">RICHMOND, VA &middot; HEALTH ECOSYSTEM ON-RAMP</span>
       <h1>
-        <strong>Longevity Coaching</strong> in Richmond offering <strong>1-on-1 personal training, medical weight loss, and hormone optimization.</strong>
+        <strong>A health partner</strong>, not a gym membership &mdash; coaching and measurement that connects you to <strong>physician partnerships</strong> for medical weight loss, peptides, and HRT.
       </h1>
-      <a href="#apply-form" class="btn-primary" id="apply">Book Your Strategy Session</a>
-      <p class="cta-bonus">Includes a complimentary 3D body composition scan.</p>
-      <p class="hero-fine">Limited spots available. We accept a small number of new clients each month.</p>
-    </div>
+      <p class="hero-sub">
+        RVA Health Partner is your concierge liaison into a physician-connected wellness ecosystem. Start with Hybrid Foundation or Total Performance &mdash; then, when clinical care fits, we coordinate with independent licensed physicians. We coach and measure. They prescribe.
+      </p>
 
-    <!-- Main brand logo -->
-    <div class="hero-visual">
-      <img src="assets/images/rva-health-partner-hero.png" style="width: 100%; max-width: 750px; height: auto;"
-        alt="RVA HealthPartner logo">
+      <div class="hero-buttons">
+        <a href="#packages" class="btn-primary">Explore Hybrid Foundation &middot; $367</a>
+        <a href="#packages" class="btn-primary btn-gold">Explore Total Performance &middot; $967</a>
+      </div>
+      
+      <a href="#apply-form" class="hero-text-link">Or book a strategy session &rarr;</a>
+
+      <p class="cta-bonus" style="margin-top: 16px;">Includes a complimentary 3D body composition scan.</p>
+      <p class="hero-fine">Limited spots available. We accept a small number of new members each month.</p>
     </div>
   </div>
 
@@ -2185,7 +2213,7 @@
           <h3>Total Performance &amp; Recovery</h3>
           <p>2 In-person personal training sessions per week + bloodwork + physician-supervised peptide therapy.</p>
           <p style="font-size: 32px; font-weight: 800; margin-top: 12px;">$967<span
-              style="font-size: 15px; font-weight: 500; opacity: 0.7;">/month (3-month engagement)</span></p>
+              style="font-size: 15px; font-weight: 500; opacity: 0.7;"> / 28-day cycle (12-week engagement)</span></p>
         </div>
         <div class="package-features">
           <div class="package-feature">
