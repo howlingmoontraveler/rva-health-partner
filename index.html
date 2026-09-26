@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -38,6 +38,7 @@
 
       /* Typography */
       --font-display: 'Montserrat', sans-serif;
+      --font-brand: 'Playfair Display', serif;
       --font-body: 'Inter', sans-serif;
 
       /* Texture */
@@ -75,11 +76,13 @@
     }
 
     .nav-logo {
-      font-family: var(--font-display);
+      font-family: var(--font-brand);
       font-size: 20px;
       font-weight: 600;
       color: var(--green);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
     }
 
     .nav-logo span {
@@ -1296,10 +1299,12 @@
     }
 
     .footer-logo {
-      font-family: var(--font-display);
+      font-family: var(--font-brand);
       font-size: 20px;
       font-weight: 600;
       color: white;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .footer-logo span {
@@ -2034,7 +2039,7 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a href="/" class="nav-logo">RVA <span>Health</span>Partner</a>
+    <a href="/" class="nav-logo">RVA <span>Health Partner</span></a>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#packages">Programs</a></li>
@@ -2765,7 +2770,7 @@
   <!-- ── FOOTER ── -->
   <footer>
     <h6 style="color: rgba(255,255,255,0.4); font-size: 12px; font-weight: 400; margin-bottom: 20px; letter-spacing: 0.05em; text-transform: uppercase;">RVA Health Partner: Premier Health Optimization in Richmond, Virginia</h6>
-    <div class="footer-logo">RVA <span>Health</span> Partner</div>
+    <div class="footer-logo">RVA <span>Health Partner</span></div>
     <div class="disclaimer">
       RVA Health Partner provides strength coaching and nutrition guidance. Clinical services in Package 2 are delivered
       independently by our affiliated medical network. RVA Health Partner does not practice medicine,
