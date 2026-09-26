@@ -132,6 +132,11 @@
       .content-wrapper { margin: 40px auto; }
       h1 { font-size: 32px; }
     }
+  
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--text-muted); transition: color 0.45s; }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 860px) { .nav-links { display: none; } }
   </style>
 </head>
 
@@ -139,9 +144,15 @@
 
   <!-- ── NAV ── -->
   <nav>
-    <a href="/" class="nav-logo">RVA <span>Health</span>Partner</a>
-    <a href="/#apply-form" class="nav-cta">Book a Strategy Session</a>
-  </nav>
+  <a href="/" class="nav-logo">RVA <span>Health Partner</span></a>
+  <ul class="nav-links">
+    <li><a href="/#how-it-works">How It Works</a></li>
+    <li><a href="/#packages">Programs</a></li>
+    <li><a href="/peptide-therapy/">Peptide &amp; Recovery Protocols</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <a href="/#apply-form" class="nav-cta">Inquire About Coaching</a>
+</nav>
 
   <!-- ── CONTENT ── -->
   <div class="content-wrapper">
